@@ -28,13 +28,13 @@ export const ButtonComponent = ({
 }: ButtonProps) => {
     const isDisabled = disabled || loading;
     const hasText = Boolean(children);
-
+    console.log(loading)
     return (
         <>
             <button
                 ref={ref}
                 type={type}
-                disabled={disabled}
+                disabled={isDisabled}
                 onClick={onClick}
                 style={style}
                 className={` ${className ?? ''}`}
@@ -42,10 +42,10 @@ export const ButtonComponent = ({
                 aria-busy={loading || undefined}
                 aria-label={!hasText ? ariaLabel : undefined}
             >
-                {loading && (<span className={"btn-spinner"} aria-hidden="true" />)}
-
-                {hasText && children}
-
+                {loading ? 
+                <span className={"btn-spinner"} aria-hidden="true" > Cargando...</span>
+                : children
+                }
                 {icon && <span className='btn-icon'>{icon}</span>}
             </button>
         </>

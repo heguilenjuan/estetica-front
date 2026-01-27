@@ -15,16 +15,19 @@ export const useLogin = () => {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     
-    const login = async () => {
-        setLoading(true);
+    const login = async () => {        
         setError(null);
+        setLoading(true);
+
         try{
             if(!credentials.username || !credentials.password){
                 setError("faltan credenciales")
                 throw new Error("Missing credentials");
             }
-            console.log("haz iniciado sesion tio")
 
+            await new Promise(resolve => setTimeout(resolve, 2000))
+
+            console.log("Has iniciado sesion tio.")
         } catch(err){
             setError((err as Error).message)
         }finally{

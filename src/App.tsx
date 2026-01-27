@@ -31,6 +31,7 @@ function App() {
             login();
           }}
         >
+          <fieldset>
           <legend>Iniciar sesion</legend>
           <InputComponent
             label='Usuario: '
@@ -39,6 +40,7 @@ function App() {
             type='text'
             placeholder='cachito28'
             onChange={handleChange}
+            defaultValue=''
 
           />
           <InputComponent
@@ -46,8 +48,9 @@ function App() {
             name='password'
             id='password'
             type='password'
-            placeholder='**********************'
+            placeholder='**************'
             onChange={handleChange}
+            defaultValue=''
             error={error? error : undefined}
           />
           <ButtonComponent
@@ -56,6 +59,7 @@ function App() {
           >
             Ingresar
           </ButtonComponent>
+          </fieldset>
         </form>
       </main>
     </>
