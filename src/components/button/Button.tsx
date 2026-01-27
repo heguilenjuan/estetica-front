@@ -2,7 +2,7 @@ import React, { type CSSProperties, type ReactNode, type Ref } from 'react';
 import './Button.style.css';
 
 interface ButtonProps {
-    ref: Ref<HTMLButtonElement>,
+    ref?: Ref<HTMLButtonElement>,
     children: ReactNode;
     type?: 'submit' | 'reset' | 'button';
     disabled?: boolean;

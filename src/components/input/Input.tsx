@@ -3,6 +3,7 @@ import React, {
     type CSSProperties
 } from 'react';
 import type { HTMLInputTypeAttribute } from 'react';
+import './Input.style.css'
 
 interface InputProps {
     ref?: React.Ref<HTMLInputElement>;
@@ -16,7 +17,7 @@ interface InputProps {
     onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
     disabled?: boolean;
     required?: boolean;
-    error?: string;
+    error?: string | number;
     ariaLabel?: string;
     className?: string;
     style?: CSSProperties;
@@ -45,7 +46,7 @@ export const InputComponent = ({
     const hasError = Boolean(error);
 
     return (
-        <div className={`${className ?? ''}`} style={style}>
+        <div className={`input-box ${className ?? ''}`} style={style}>
             {hasLabel && (
                 <label htmlFor={inputId}>
                     {label}
@@ -54,6 +55,7 @@ export const InputComponent = ({
             )}
 
             <input
+                className='input-input'
                 ref={ref}
                 id={inputId}
                 name={name}

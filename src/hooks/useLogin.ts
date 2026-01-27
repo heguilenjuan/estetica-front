@@ -2,14 +2,14 @@ import { useState } from "react";
 
 
 interface LoginCredentials {
-    user:string;
+    username:string;
     password:string;
 }
 
 
 export const useLogin = () => {
     const [credentials, setCredentials] = useState<LoginCredentials>({
-        user: "",
+        username: "",
         password: ""
     });
     const [error, setError] = useState<string | null>(null);
@@ -18,11 +18,13 @@ export const useLogin = () => {
     const login = async () => {
         setLoading(true);
         setError(null);
-
         try{
-            if(!credentials.user || !credentials.password){
+            if(!credentials.username || !credentials.password){
+                setError("faltan credenciales")
                 throw new Error("Missing credentials");
             }
+            console.log("haz iniciado sesion tio")
+
         } catch(err){
             setError((err as Error).message)
         }finally{
@@ -33,6 +35,7 @@ export const useLogin = () => {
     return {
         setCredentials,
         error,
-        loading
+        loading,
+        login
     }
 }
