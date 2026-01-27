@@ -1,4 +1,7 @@
 import './App.css'
+import { ButtonComponent } from './components/button/Button'
+import React, { useRef } from 'react'
+import { InputComponent } from './components/input/Input'
 
 function App() {
 
@@ -9,16 +12,14 @@ function App() {
       </header>
       <main>
         <form>
+          <InputComponent />
+          <InputComponent />
           <div>
-            <label>*Usuario: </label>
-            <input />
-          </div>
-          <div>
-            <label>*Contraseña: </label>
-            <input />
-          </div>
-          <div>
-              <button>Ingresar</button>
+            <ButtonComponent
+              ref={useRef<HTMLButtonElement>(null)}
+            >
+              Ingresar
+            </ButtonComponent>
           </div>
         </form>
       </main>
