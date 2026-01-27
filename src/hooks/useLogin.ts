@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 interface LoginCredentials {
-    username:string;
-    password:string;
+    username: string;
+    password: string;
 }
 
 
@@ -14,23 +15,26 @@ export const useLogin = () => {
     });
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
-    
-    const login = async () => {        
+
+    const navigate = useNavigate();
+
+    const login = async () => {
         setError(null);
         setLoading(true);
 
-        try{
-            if(!credentials.username || !credentials.password){
+        try {
+            if (!credentials.username || !credentials.password) {
                 setError("faltan credenciales")
                 throw new Error("Missing credentials");
             }
 
             await new Promise(resolve => setTimeout(resolve, 2000))
 
-            console.log("Has iniciado sesion tio.")
-        } catch(err){
+            navigate("/dashboard")
+
+        } catch (err) {
             setError((err as Error).message)
-        }finally{
+        } finally {
             setLoading(false)
         }
     }
