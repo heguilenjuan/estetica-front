@@ -1,4 +1,4 @@
-import type { User } from "../model/user.model"
+import type { User } from "../models/user.model"
 
 
 export interface LoginResponse {
