@@ -1,20 +1,35 @@
 import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import DashboardPage from './pages/Dashboard.tsx'
-import { ProtectedRoute } from './utils/ProtectRoute.tsx'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import DashboardPage from './pages/Dashboard'
+import { ProtectedRoute } from './utils/ProtectRoute'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />} />
-        <Route element={<ProtectedRoute isAuthenticated={isAuth} />}>
-          <Route path='/dashboard' element={<DashboardPage />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
-  </StrictMode>,
-)
+async function enableMocking() {
+  if (import.meta.env.MODE !== 'development') {
+    return
+  }
+
+  const { worker } = await import('./mocks/browser')
+  return worker.start({
+    onUnhandledRequest: 'warn',
+  })
+}
+
+enableMocking().then(async () => {
+  const { createRoot } = await import('react-dom/client')
+  const { default: App } = await import('./App')
+
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route element={<ProtectedRoute />}>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </StrictMode>
+  )
+})

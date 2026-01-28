@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { replace, useNavigate } from "react-router-dom";
+import { loginRequest } from "../services/auth.service";
 
 
 interface LoginCredentials {
@@ -23,15 +24,10 @@ export const useLogin = () => {
         setLoading(true);
 
         try {
-            if (!credentials.username || !credentials.password) {
-                setError("faltan credenciales")
-                throw new Error("Missing credentials");
+            const data = await loginRequest(credentials.username, credentials.password);
+            if (data.token) {
+                navigate("/dashboard", { replace: true })
             }
-
-            await new Promise(resolve => setTimeout(resolve, 2000))
-
-            navigate("/dashboard")
-
         } catch (err) {
             setError((err as Error).message)
         } finally {
