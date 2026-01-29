@@ -24,7 +24,7 @@ enableMocking().then(async () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<App />} />
-
+    
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route element={<ProtectedRoute />}>
           </Route>
