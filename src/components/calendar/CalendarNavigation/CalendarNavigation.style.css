@@ -1,0 +1,9 @@
+.calendarNavigation-box{
+    display: flex;
+    flex-direction: row;
+}
+.calendarNavigation-date{
+    width: 90%;
+    text-align: center;
+}
+º

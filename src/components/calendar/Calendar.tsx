@@ -1,9 +1,8 @@
+import { CalendarNavigation } from "./CalendarNavigation/CalendarNavigation"
 
 
 export const Calendar = () => {
     return (
-        <>
-            <h1>la pachamama llega</h1>
-        </>
+        <CalendarNavigation/>
     )
 }

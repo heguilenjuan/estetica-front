@@ -6,6 +6,7 @@ import { Avatar } from './components/avatar/Avatar'
 import { useLogin } from './hooks/useLogin'
 import './styles/form.styles.css'
 import { Badge } from './components/badge/Badge'
+import { Calendar } from './components/calendar/Calendar'
 
 function App() {
   const { setCredentials, loading, login, error } = useLogin();
@@ -22,13 +23,13 @@ function App() {
   return (
     <>
       <header>
-        <h1>Estetica app</h1>
         <Avatar
           alt='imagen de prueba en login'
         />
         <Badge>
           Cancelado
         </Badge>
+        <Calendar/>
       </header>
       <main>
         <form
