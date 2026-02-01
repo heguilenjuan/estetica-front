@@ -2,10 +2,8 @@ import './App.css'
 import { ButtonComponent } from './components/button/Button'
 import React, { type ChangeEvent } from 'react'
 import { InputComponent } from './components/input/Input'
-import { Avatar } from './components/avatar/Avatar'
 import { useLogin } from './hooks/useLogin'
 import './styles/form.styles.css'
-import { Badge } from './components/badge/Badge'
 import { Calendar } from './components/calendar/Calendar'
 
 function App() {
@@ -23,13 +21,7 @@ function App() {
   return (
     <>
       <header>
-        <Avatar
-          alt='imagen de prueba en login'
-        />
-        <Badge>
-          Cancelado
-        </Badge>
-        <Calendar/>
+        <Calendar />
       </header>
       <main>
         <form

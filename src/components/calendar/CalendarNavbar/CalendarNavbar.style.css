@@ -1,0 +1,10 @@
+.calendarNavbar-box{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    padding: 0 10px;
+}
+.calendarNavbar-date{
+    text-align: center;
+    margin:auto;
+}

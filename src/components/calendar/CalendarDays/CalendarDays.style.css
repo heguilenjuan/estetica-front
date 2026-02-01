@@ -1,0 +1,28 @@
+.calendarDays-container {
+    width: 100%;;
+}
+
+.calendarDays-weekDays {
+    margin: 0;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.calendarDays-days {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.is-outside{
+    color: #ccc;
+    opacity: 0.5;
+}
+
+.is-today{
+    border: 1px solid #646cff;
+    border-radius: 15px;
+}
