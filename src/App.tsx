@@ -4,7 +4,6 @@ import React, { type ChangeEvent } from 'react'
 import { InputComponent } from './components/input/Input'
 import { useLogin } from './hooks/useLogin'
 import './styles/form.styles.css'
-import { Calendar } from './components/calendar/Calendar'
 
 function App() {
   const { setCredentials, loading, login, error } = useLogin();
@@ -21,7 +20,7 @@ function App() {
   return (
     <>
       <header>
-        <Calendar />
+
       </header>
       <main>
         <form

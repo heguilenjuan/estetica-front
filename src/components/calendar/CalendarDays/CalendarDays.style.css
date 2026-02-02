@@ -15,7 +15,9 @@
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     text-align: center;
+    cursor: pointer;
 }
+
 
 .is-outside{
     color: #ccc;
@@ -23,6 +25,11 @@
 }
 
 .is-today{
-    border: 1px solid #646cff;
-    border-radius: 15px;
+    background-color: #646cff;
+    border-radius: 10%;
+
+}
+.is-today:hover{
+    background-color: #5159e6;
+   
 }

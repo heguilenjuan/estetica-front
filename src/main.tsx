@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import './index.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import DashboardPage from './pages/Dashboard'
+import DashboardPage from './pages/Dashboard/Dashboard'
 import { ProtectedRoute } from './routes/ProtectRoute'
 
 async function enableMocking() {
