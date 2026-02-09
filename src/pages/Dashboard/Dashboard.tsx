@@ -3,16 +3,16 @@ import { SessionsOverview } from './components/SessionOverview'
 import './Dashborad.style.css'
 const DashboardPage = () => {
   return (
-    <main> 
+    <main className='dashboard-page'>
       <h2>Navbar</h2>
       <div>
         Estilo bredcrum? o
         btns de book Appointment, Add Client y Inventory, etc
       </div>
-      <div className='dashboard-session'>
+      <section >
         <Calendar />
         <SessionsOverview />
-      </div>
+      </section>
 
     </main>
   )

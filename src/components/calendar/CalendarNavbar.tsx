@@ -1,6 +1,5 @@
-
-import type { CalendarNavbarProps } from '../Calendar.types'
-import './CalendarNavbar.style.css'
+import './Calendar.style.css'
+import type { CalendarNavbarProps } from './Calendar.types'
 
 export const CalendarNavbar =  ({
     month,
@@ -9,9 +8,9 @@ export const CalendarNavbar =  ({
     onNextMonth
 }:CalendarNavbarProps) => {
     return(
-        <div className='calendarNavbar-box'>
+        <div className='calendar-navbar'>
             <button onClick={onPreviousMonth}>&lt;</button>
-            <p className='calendarNavbar-date'>{month} - {year}</p>
+            <p>{month} - {year}</p>
             <button onClick={onNextMonth}>&gt;</button>
         </div>
     )

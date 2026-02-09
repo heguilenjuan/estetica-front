@@ -1,0 +1,30 @@
+.calendar {
+    width: 100%;
+}
+
+.calendar-navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.calendar tbody{
+    text-align: center;
+}
+.is-outside{
+    color: #ccc;
+    opacity: 0.5;
+}
+
+.is-today{
+    background-color: #646cff;
+}
+.is-today:hover{
+    opacity: 0.5;
+   
+}
+
+.calendarNavbar-date{
+    text-align: center;
+    margin:auto;
+}

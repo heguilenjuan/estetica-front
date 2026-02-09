@@ -28,7 +28,6 @@ export const ButtonComponent = ({
 }: ButtonProps) => {
     const isDisabled = disabled || loading;
     const hasText = Boolean(children);
-    console.log(loading)
     return (
         <>
             <button
