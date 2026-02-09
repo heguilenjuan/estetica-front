@@ -1,0 +1,52 @@
+.dashboard-stats {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.stats-card {
+  background-color: #2b1b3a;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.stats-card dt {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.stats-card dd {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.stats-subtext {
+  display: block;
+  font-size: 0.8rem;
+  color: #2ecc71; 
+  font-weight: normal;
+}
+
+.progress-bar {
+  background-color: #441c54;
+  border-radius: 8px;
+  height: 8px;
+  width: 100%;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  background-color: #ff2f92;
+  height: 100%;
+  width: 0;
+  border-radius: 8px;
+}

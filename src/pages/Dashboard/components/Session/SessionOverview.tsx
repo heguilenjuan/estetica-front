@@ -1,5 +1,5 @@
-import { Avatar } from "../../../components/avatar/Avatar";
-import { Badge } from "../../../components/badge/Badge";
+import { Avatar } from '../../../../components/avatar/Avatar'
+import { Badge } from '../../../../components/badge/Badge'
 import './SessionOverview.style.css'
 export const SessionsOverview = () => (
     <div>
