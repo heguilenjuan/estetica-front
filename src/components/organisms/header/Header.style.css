@@ -8,13 +8,19 @@
   display: grid;
   height: 64px;
   justify-items: left;
-  grid-template-columns:8fr 2fr;
+  grid-template-columns:8fr 350px;
   align-items: center;
-  padding: 1rem;
+  padding-inline: 1rem;
 }
 
 .header-logo{
   display: flex;
   justify-content: center;
   color: white;
+}
+.header-right{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
 }

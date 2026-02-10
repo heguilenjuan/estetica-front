@@ -15,7 +15,7 @@ export const SessionsOverview = () => (
         <tbody>
             <tr>
                 <td ><Badge status="inProgress"> Confirmed </Badge></td>
-                <td><Avatar /> <p>Jorge Cremades</p></td>
+                <td className='table-name'><Avatar /> <p>Jorge Cremades</p></td>
                 <td>Manicura</td>
                 <td>3:00 PM</td>
                 <td>
@@ -27,7 +27,7 @@ export const SessionsOverview = () => (
             </tr>
             <tr>
                 <td ><Badge status="inProgress"> Confirmed </Badge></td>
-                <td><Avatar /> <p>Jorge Cremades</p></td>
+                <td className='table-name'><Avatar /> <p>Jorge Cremades</p></td>
                 <td>Manicura</td>
                 <td>3:00 PM</td>
                 <td>
@@ -39,7 +39,7 @@ export const SessionsOverview = () => (
             </tr>
             <tr>
                 <td ><Badge status="inProgress"> Confirmed </Badge></td>
-                <td><Avatar /> <p>Jorge Cremades</p></td>
+                <td className='table-name'><Avatar /> <p>Jorge Cremades</p></td>
                 <td>Manicura</td>
                 <td>3:00 PM</td>
                 <td>
@@ -52,7 +52,7 @@ export const SessionsOverview = () => (
 
             <tr>
                 <td ><Badge status="inProgress"> Confirmed </Badge></td>
-                <td><Avatar /> <p>Jorge Cremades</p></td>
+                <td className='table-name'><Avatar /> <p>Jorge Cremades</p></td>
                 <td>Manicura</td>
                 <td>3:00 PM</td>
                 <td>

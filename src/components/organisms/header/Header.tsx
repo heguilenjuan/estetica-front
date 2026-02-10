@@ -1,3 +1,4 @@
+import { Avatar } from "../../molecules/avatar/Avatar";
 import NavbarComponent from "../navbar/Navbar";
 import './Header.style.css'
 
@@ -8,9 +9,10 @@ const HeaderComponent = () => {
                 <a className="header-logo">
                     logo app si existiera
                 </a>
-                <div>
+                <div className="header-right">
                     <span>Logeado arre</span>
                     <NavbarComponent />
+                    <Avatar/>
                 </div>
             </div>
 
