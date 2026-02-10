@@ -9,10 +9,10 @@ const DashboardPage = () => {
   return (
     <main className='dashboard-page'>
       <h2>Navbar</h2>
-      <section aria-label='acciones rapidas'>
+      <section  aria-label='acciones rapidas'>
         <QuickActions />
       </section>
-      <section aria-label='estado de la aplicacion'>
+      <section className='dashboard-stats' aria-label='estadisticas generales'>
         <DashboardStats />
       </section>
       <section aria-label='agenda'>

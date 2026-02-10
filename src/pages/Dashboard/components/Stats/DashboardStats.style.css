@@ -5,34 +5,26 @@
 }
 
 .stats-card {
-  background-color: #2b1b3a;
+  background-color: #734cf3;
   color: #fff;
-  padding: 1rem;
+  padding: 0.8rem;
+  font-size: 1rem;
   border-radius: 12px;
   flex: 1;
-  min-width: 200px;
+  width: 200px;
 }
 
 .stats-card dt {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
-  color: #ccc;
+  margin-bottom: 1.2rem;
 }
 
 .stats-card dd {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: bold;
-}
-
-.stats-subtext {
-  display: block;
-  font-size: 0.8rem;
-  color: #2ecc71; 
-  font-weight: normal;
 }
 
 .progress-bar {

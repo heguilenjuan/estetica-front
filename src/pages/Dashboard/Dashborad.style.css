@@ -2,6 +2,12 @@
 .dashboard-page{
     margin: 0 auto;
     max-width: 60%;
+    padding-bottom: 2rem;
 }
 
 
+.dashboard-stats {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
