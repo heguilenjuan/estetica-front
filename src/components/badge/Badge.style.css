@@ -1,0 +1,21 @@
+.badge{
+    border: transparent;
+    padding: 0.5rem 0.6rem;
+    border-radius: 20px;
+}
+
+.badge-canceled{
+    background-color: grey;
+}
+
+.badge-pending{
+    background-color: yellow;
+    color: grey;
+}
+
+.badge-inProgress{
+    background-color: #646cff;
+}
+.badge-finished{
+    background-color: green;
+}
