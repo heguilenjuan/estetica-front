@@ -1,5 +1,5 @@
-import { Avatar } from '../../../../components/avatar/Avatar'
-import { Badge } from '../../../../components/badge/Badge'
+import { Avatar } from '../../../../components/molecules/avatar/Avatar'
+import { Badge } from '../../../../components/molecules/badge/Badge'
 import './SessionOverview.style.css'
 export const SessionsOverview = () => (
     <div>
@@ -30,7 +30,7 @@ export const SessionsOverview = () => (
                         </menu>
                     </td>
                 </tr>
-                 <tr>
+                <tr>
                     <td ><Badge status="inProgress"> Confirmed </Badge></td>
                     <td><Avatar /> <p>Jorge Cremades</p></td>
                     <td>Manicura</td>
@@ -42,7 +42,7 @@ export const SessionsOverview = () => (
                         </menu>
                     </td>
                 </tr>
-                 <tr>
+                <tr>
                     <td ><Badge status="inProgress"> Confirmed </Badge></td>
                     <td><Avatar /> <p>Jorge Cremades</p></td>
                     <td>Manicura</td>
@@ -55,7 +55,7 @@ export const SessionsOverview = () => (
                     </td>
                 </tr>
 
-                 <tr>
+                <tr>
                     <td ><Badge status="inProgress"> Confirmed </Badge></td>
                     <td><Avatar /> <p>Jorge Cremades</p></td>
                     <td>Manicura</td>
@@ -67,7 +67,7 @@ export const SessionsOverview = () => (
                         </menu>
                     </td>
                 </tr>
-                
+
             </tbody>
         </table>
 

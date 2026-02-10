@@ -1,5 +1,5 @@
 import './Avatar.style.css'
-import defaultAvatar from '../../assets/default.jpg'
+import defaultAvatar from '../../../assets/default.jpg'
 
 interface AvatarProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     src?: string

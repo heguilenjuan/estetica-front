@@ -1,4 +1,4 @@
-import React, { type CSSProperties, type ReactNode, type Ref } from 'react';
+import { type CSSProperties, type ReactNode, type Ref } from 'react';
 import './Button.style.css';
 
 interface ButtonProps {

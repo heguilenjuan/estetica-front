@@ -1,9 +1,9 @@
 import './App.css'
-import { ButtonComponent } from './components/button/Button'
 import React, { type ChangeEvent } from 'react'
-import { InputComponent } from './components/input/Input'
 import { useLogin } from './hooks/useLogin'
 import './styles/form.styles.css'
+import { ButtonComponent } from './components/molecules/button/Button';
+import { InputComponent } from './components/molecules/input/Input';
 
 function App() {
   const { setCredentials, loading, login, error } = useLogin();
