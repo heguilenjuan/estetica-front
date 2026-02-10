@@ -1,0 +1,20 @@
+.header-box{
+  position: relative;
+  background-color: #734cf3;
+  border-bottom: 3px solid grey;
+}
+
+.header-grid{
+  display: grid;
+  height: 64px;
+  justify-items: left;
+  grid-template-columns:8fr 2fr;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header-logo{
+  display: flex;
+  justify-content: center;
+  color: white;
+}

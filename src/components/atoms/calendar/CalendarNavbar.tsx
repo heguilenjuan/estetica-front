@@ -1,3 +1,4 @@
+import { ButtonComponent } from '../../molecules/button/Button'
 import './Calendar.style.css'
 import type { CalendarNavbarProps } from './Calendar.types'
 
@@ -9,9 +10,9 @@ export const CalendarNavbar =  ({
 }:CalendarNavbarProps) => {
     return(
         <div className='calendar-navbar'>
-            <button onClick={onPreviousMonth}>&lt;</button>
+            <ButtonComponent onClick={onPreviousMonth}>&lt;</ButtonComponent>
             <p>{month} - {year}</p>
-            <button onClick={onNextMonth}>&gt;</button>
+            <ButtonComponent onClick={onNextMonth}>&gt;</ButtonComponent>
         </div>
     )
 }

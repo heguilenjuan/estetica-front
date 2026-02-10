@@ -1,10 +1,19 @@
 import NavbarComponent from "../navbar/Navbar";
+import './Header.style.css'
 
 const HeaderComponent = () => {
-    return(
-        <header>
-            <h1>Al toque perro</h1>
-            <NavbarComponent/>
+    return (
+        <header className="header-box">
+            <div className="header-grid">
+                <a className="header-logo">
+                    logo app si existiera
+                </a>
+                <div>
+                    <span>Logeado arre</span>
+                    <NavbarComponent />
+                </div>
+            </div>
+
         </header>
     )
 }

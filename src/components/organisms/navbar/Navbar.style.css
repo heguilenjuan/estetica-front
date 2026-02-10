@@ -1,0 +1,28 @@
+.hamburger{
+    width: fit-content;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.hamburger span{
+    width: 24px;
+    height: 2px;
+    background:currentColor;
+    display: block;
+}
+
+.hamburger-menu{
+    position: fixed;
+    top: 64px; 
+    right: 0;
+    left: 0;
+    height: calc(100dvh - 64px);
+    background: #1e1e2e;
+    z-index: 1000;
+    padding: 1.5rem
+}

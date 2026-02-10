@@ -1,4 +1,4 @@
-button {
+.btn-component {
   margin-block: 1rem;
   background-color: #1a1a1a;
   border-radius: 8px;
@@ -11,15 +11,13 @@ button {
   cursor: pointer;
   color: white;
 }
-button:hover {
+.btn-component:hover {
   border-color: #646cff;
   background-color: #888efa;
 }
-button:focus,
-button:focus-visible {
+.btn-component:focus,
+.btn-component:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.btn-component{
-  width: 100%;
-}
+

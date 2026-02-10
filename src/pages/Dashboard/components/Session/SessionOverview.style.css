@@ -1,14 +1,8 @@
-.session-header {
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .table {
   width: 100%;
   table-layout:fixed;
   border-collapse: collapse;
+  margin-top: 1.2rem;
 }
 
 .table thead th {
