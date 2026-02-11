@@ -1,21 +1,26 @@
+import { useAuth } from "../../../auth/useAuth";
 import { Avatar } from "../../molecules/avatar/Avatar";
 import { NavbarComponent } from "../navbar/Navbar";
+import { Link } from "react-router-dom";
 import './Header.style.css'
 
 export const HeaderComponent = () => {
+    const { state } = useAuth()
+    const nameUser = state ? state.user?.name: "";
+    const lastNameUser = state ? state.user?.lastname: "";
+
     return (
         <header className="header-box">
             <div className="header-grid">
-                <a className="header-logo">
-                    logo app si existiera
-                </a>
+                <Link className="header-logo" to={"/"}>
+                   LOGO
+                </Link>
                 <div className="header-right">
-                    <span>Logeado arre</span>
+                    <Avatar />
+                    <p>{nameUser} {lastNameUser}</p>
                     <NavbarComponent />
-                    <Avatar/>
                 </div>
             </div>
-
         </header>
     )
 }
