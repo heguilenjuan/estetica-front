@@ -2,30 +2,38 @@ import type { User } from "../models/user.model"
 
 
 export interface LoginResponse {
-    token:string
-    user:User
+    user: User
 }
 
 export const loginRequest = async (
-    username:string,
-    password:string
-):Promise<LoginResponse> => {
+    username: string,
+    password: string
+): Promise<LoginResponse> => {
+
     const res = await fetch('/login', {
         method: 'POST',
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({username, password})
+        headers: {'Content-Type': 'application/json'},
+        credentials: 'include',
+        body: JSON.stringify({ username, password })
     })
 
-    if(!res.ok){
-        let message = 'Error inesperado'
-        try{
-            const data = await res.json()
-            message = data.message ?? message
-        }catch{ /* empty */ }
-        throw new Error(message)
-    }   
+    if(!res.ok)throw new Error("Credenciales invalidas");
     
-    return res.json()
+    return res.json();
+}
+
+export const meRequest = async () => {
+    const res = await fetch("/me", {
+        credentials: "include"
+    })
+    if(!res.ok) throw new Error("No session");
+    
+    return res.json();
+}
+
+export const logoutRequest = async() => {
+    await fetch("/logout", {
+        method:"POST",
+        credentials:"include"
+    });
 }

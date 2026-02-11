@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import './Navbar.style.css'
+import { ButtonComponent } from '../../molecules/button/Button';
+import { useAuth } from '../../../auth/useAuth';
 
-const NavbarComponent = () => {
+export const NavbarComponent = () => {
+    const { logout } = useAuth();
     const [open, setOpen] = useState(false);
 
     useEffect(() => {
@@ -52,10 +55,17 @@ const NavbarComponent = () => {
                     <li>
                         <a href="">Tratamientos</a>
                     </li>
+                    <li>
+                        <ButtonComponent
+                            type='button'
+                            onClick={() => logout()}
+                        >
+                            Cerrar sesion
+                        </ButtonComponent>
+                    </li>
                 </ul>
+
             </nav>
         </>
     )
 }
-
-export default NavbarComponent;

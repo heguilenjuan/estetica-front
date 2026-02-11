@@ -1,7 +1,7 @@
 import { ButtonComponent } from '../../../../components/molecules/button/Button';
 import './QuickActions.style.css'
 
-const QuickActions = () => {
+export const QuickActions = () => {
     return (
         <ul className="quick-actions">
             <li>
@@ -25,5 +25,3 @@ const QuickActions = () => {
         </ul>
     )
 }
-
-export default QuickActions;

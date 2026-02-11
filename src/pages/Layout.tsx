@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
-import HeaderComponent from "../components/organisms/header/Header";
+import { HeaderComponent } from "../components/organisms/header/Header";
 
 type LayoutProps = {
     children: ReactNode;
 }
 
-const LayoutComponent = ({ children }: LayoutProps) => {
+export const LayoutComponent = ({ children }: LayoutProps) => {
     return (
         <>
             <HeaderComponent />
@@ -13,5 +13,3 @@ const LayoutComponent = ({ children }: LayoutProps) => {
         </>
     )
 }
-
-export default LayoutComponent;

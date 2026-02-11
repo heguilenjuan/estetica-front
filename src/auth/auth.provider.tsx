@@ -1,45 +1,51 @@
-import { useReducer, useEffect } from 'react';
-import { AuthContext } from './auth.context';
-import { authReducer, initialAuthState } from './auth.reducer';
-import type { User } from '../models/user.model';
+import { useEffect, useReducer, type ReactNode } from "react";
+import { authReducer, initialAuthState } from "./auth.reducer";
+import { loginRequest, logoutRequest, meRequest } from "../services/auth.service";
+import { AuthContext } from "./auth.context";
 
-interface AuthProviderProps {
-    children: React.ReactNode;
-}
+export function AuthProvider({children}:{children:ReactNode}){
+    const [state, dispatch] = useReducer(authReducer, initialAuthState);
 
-export function AuthProvider({ children }: AuthProviderProps) {
-    const [state, dispatch] = useReducer(authReducer, initialAuthState)
+    const login = async (username:string, password:string) => {
+        dispatch({type: "START_LOADING"});
 
-    const logout = () => {
-        dispatch({ type: "LOGOUT" });
+        const data = await loginRequest(username, password);
+        
+        dispatch({
+            type:"LOGIN_SUCCESS",
+            payload:data.user
+        });
+    };
+
+    const logout = async () => {
+        await logoutRequest();
+        dispatch({type: "LOGOUT"});
     }
+
     const refreshSession = async () => {
-        try {
-            //deberia vlaidar con backend
-            const user = {} as User;
-            dispatch({ type: "REFRESH_SESSION", payload: user })
-        } catch {
-            dispatch({ type: "LOGOUT" })
+        try{
+            const data = await meRequest();
+            dispatch({type: "REFRESH_SESSION", payload:data.user})
+        } catch{
+            dispatch({type: "LOGOUT"})
         }
     }
 
-    const updateProfile = async (data: Partial<User>) => {
-        const updatedUser: User = await patchUser(data);
-        dispatch({ type: "UPDATE_PROFILE", payload: updatedUser })
-    }
     useEffect(() => {
         refreshSession();
-    }, []);
+    }, [])
+
     return (
         <AuthContext.Provider
             value={{
                 state,
+                login,
                 logout,
-                updateProfile,
-                refreshSession,
+                refreshSession
             }}
         >
             {children}
         </AuthContext.Provider>
-    );
+    )
+
 }

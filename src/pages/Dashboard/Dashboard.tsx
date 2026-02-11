@@ -1,12 +1,12 @@
 import { Calendar } from '../../components/atoms/calendar/Calendar'
-import LayoutComponent from '../layout'
-import QuickActions from './components/Actions/QuickActions'
+import { LayoutComponent } from '../Layout'
+import { QuickActions } from './components/Actions/QuickActions'
 import { SessionsOverview } from './components/Session/SessionOverview'
-import DashboardStats from './components/Stats/DashboardStats'
+import { DashboardStats } from './components/Stats/DashboardStats'
 import './Dashborad.style.css'
 
 
-const DashboardPage = () => {
+export const DashboardPage = () => {
   return (
     <LayoutComponent>
       <main className='dashboard-page'>
@@ -24,5 +24,3 @@ const DashboardPage = () => {
     </LayoutComponent>
   )
 }
-
-export default DashboardPage

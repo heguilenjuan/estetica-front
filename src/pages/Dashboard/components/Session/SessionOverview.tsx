@@ -1,6 +1,8 @@
 import { Avatar } from '../../../../components/molecules/avatar/Avatar'
 import { Badge } from '../../../../components/molecules/badge/Badge'
 import './SessionOverview.style.css'
+
+
 export const SessionsOverview = () => (
     <table className="table">
         <thead>
@@ -8,6 +10,7 @@ export const SessionsOverview = () => (
                 <th scope="col">Estado</th>
                 <th scope="col">Cliente</th>
                 <th scope="col">Servicio</th>
+                <th scope="col">Usuario</th>
                 <th scope="col">Hora</th>
                 <th scope="col">Acción</th>
             </tr>
@@ -17,6 +20,7 @@ export const SessionsOverview = () => (
                 <td ><Badge status="inProgress"> Confirmed </Badge></td>
                 <td className='table-name'><Avatar /> <p>Jorge Cremades</p></td>
                 <td>Manicura</td>
+                <td>Tama</td>
                 <td>3:00 PM</td>
                 <td>
                     <menu>
@@ -29,6 +33,7 @@ export const SessionsOverview = () => (
                 <td ><Badge status="inProgress"> Confirmed </Badge></td>
                 <td className='table-name'><Avatar /> <p>Jorge Cremades</p></td>
                 <td>Manicura</td>
+                <td>Tama</td>
                 <td>3:00 PM</td>
                 <td>
                     <menu>
@@ -41,6 +46,7 @@ export const SessionsOverview = () => (
                 <td ><Badge status="inProgress"> Confirmed </Badge></td>
                 <td className='table-name'><Avatar /> <p>Jorge Cremades</p></td>
                 <td>Manicura</td>
+                <td>Marie Curie</td>
                 <td>3:00 PM</td>
                 <td>
                     <menu>
@@ -54,6 +60,7 @@ export const SessionsOverview = () => (
                 <td ><Badge status="inProgress"> Confirmed </Badge></td>
                 <td className='table-name'><Avatar /> <p>Jorge Cremades</p></td>
                 <td>Manicura</td>
+                <td>Marie Curie</td>
                 <td>3:00 PM</td>
                 <td>
                     <menu>
@@ -62,7 +69,9 @@ export const SessionsOverview = () => (
                     </menu>
                 </td>
             </tr>
+            
 
         </tbody>
     </table>
 )
+

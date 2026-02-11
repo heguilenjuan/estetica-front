@@ -1,8 +1,8 @@
 import { Avatar } from "../../molecules/avatar/Avatar";
-import NavbarComponent from "../navbar/Navbar";
+import { NavbarComponent } from "../navbar/Navbar";
 import './Header.style.css'
 
-const HeaderComponent = () => {
+export const HeaderComponent = () => {
     return (
         <header className="header-box">
             <div className="header-grid">
@@ -19,5 +19,3 @@ const HeaderComponent = () => {
         </header>
     )
 }
-
-export default HeaderComponent;

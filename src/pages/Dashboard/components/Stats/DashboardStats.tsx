@@ -1,6 +1,6 @@
 import './DashboardStats.style.css'
 
-const DashboardStats = () => {
+export const DashboardStats = () => {
 
     return (
         <>
@@ -40,5 +40,3 @@ const DashboardStats = () => {
 
     )
 }
-
-export default DashboardStats;
