@@ -7,9 +7,11 @@ type LayoutProps = {
 
 export const LayoutComponent = ({ children }: LayoutProps) => {
     return (
-        <>
+        <div style={{ "width": "100dvw" }}>
             <HeaderComponent />
-            {children}
-        </>
+            <main style={{ "width": "80%", "margin": "2rem auto" }}>
+                {children}
+            </main>
+        </div>
     )
 }

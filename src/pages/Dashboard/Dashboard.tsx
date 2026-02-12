@@ -9,18 +9,16 @@ import './Dashborad.style.css'
 export const DashboardPage = () => {
   return (
     <LayoutComponent>
-      <main className='dashboard-page'>
-        <section aria-label='acciones rapidas'>
-          <QuickActions />
-        </section>
-        <section className='dashboard-stats' aria-label='estadisticas generales'>
-          <DashboardStats />
-        </section>
-        <section aria-label='agenda'>
-          <Calendar />
-          <SessionsOverview />
-        </section>
-      </main>
+      <section aria-label='acciones rapidas'>
+        <QuickActions />
+      </section>
+      <section className='dashboard-stats' aria-label='estadisticas generales'>
+        <DashboardStats />
+      </section>
+      <section aria-label='agenda'>
+        <Calendar />
+        <SessionsOverview />
+      </section>
     </LayoutComponent>
   )
 }

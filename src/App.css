@@ -3,18 +3,18 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+dialog {
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  max-width: 500px;
+  width: 90%;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
+
 
 @keyframes logo-spin {
   from {
