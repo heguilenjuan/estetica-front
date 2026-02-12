@@ -1,5 +1,6 @@
 import { http, HttpResponse } from "msw";
 import type { User } from "../models/user.model";
+import type { Client, ClientCreate } from "../models/client.model";
 
 type UserMock = User & {
     password: string;
@@ -30,6 +31,9 @@ const userMocks: UserMock[] = [
         password: "12345678"
     }
 ]
+
+const clients: Client[] = []
+
 
 export const handlers = [
     http.post('/login', async ({ request }) => {
@@ -89,6 +93,36 @@ export const handlers = [
                 }
             }
         );
+    }),
+    http.post('/clients', async ({ request }) => {
+        const body = await request.json() as ClientCreate;
+
+        const { name, lastname, birthDate, phoneNumber } = body;
+
+        if (!name || !lastname || !birthDate || !phoneNumber) {
+            return HttpResponse.json(
+                { message: 'Invalid data' },
+                { status: 400 }
+            )
+        }
+
+        const newClient: Client = {
+            id: crypto.randomUUID(),
+            name: name,
+            lastname: lastname,
+            birthDate: birthDate,
+            phoneNumber: phoneNumber
+        }
+
+        clients.push(newClient)
+
+        return HttpResponse.json(
+            newClient,
+            { status: 201 }
+        )
+    }),
+    http.get("/clients", async () => {
+        
     }),
     http.get("/calendars/:id", ({ params }) => {
         const { id } = params;
