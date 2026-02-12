@@ -1,0 +1,25 @@
+import type { HookModalResponse } from "../../atoms/modal/hook/useModal"
+import { ModalComponent } from "../../atoms/modal/Modal"
+import { ButtonComponent } from "../../molecules/button/Button"
+import { ClientForm } from "./components/ClientForm"
+
+import './ModalClient.style.css'
+
+export const ModalClient = ({ isOpen, close }: HookModalResponse) => {
+
+    return (<ModalComponent isOpen={isOpen} onClose={close}>
+        <div className="modal-content">
+            <header className="modal-header">
+                <h2>Nuevo cliente</h2>
+                <ButtonComponent
+                    type="button"
+                    onClick={close}
+                >
+                    ✖
+                </ButtonComponent>
+            </header>
+            <ClientForm />
+        </div>
+    </ModalComponent>
+    )
+}

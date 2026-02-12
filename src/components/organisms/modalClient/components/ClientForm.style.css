@@ -1,0 +1,9 @@
+.form-client{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-client-btn{
+    width: 100%;
+}

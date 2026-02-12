@@ -3,7 +3,7 @@ import { ButtonComponent } from '../../../../components/molecules/button/Button'
 import './QuickActions.style.css'
 import { useAuth } from '../../../../auth/useAuth';
 import { useModal } from '../../../../components/atoms/modal/hook/useModal';
-import { ModalComponent } from '../../../../components/atoms/modal/Modal';
+import { ModalClient } from '../../../../components/organisms/modalClient/ModalClient';
 
 export const QuickActions = () => {
     const { state } = useAuth();
@@ -51,18 +51,7 @@ export const QuickActions = () => {
                 </li>
             </ul>
             {!isOpen ? null :
-                <ModalComponent isOpen={isOpen} onClose={close}>
-                    <div className="modal-content">
-                        <header className="modal-header">
-                            <h2>Nuevo cliente</h2>
-                            <button onClick={close}>✖</button>
-                        </header>
-
-                        <div className="modal-body">
-                            <p>Formulario de cliente aquí</p>
-                        </div>
-                    </div>
-                </ModalComponent>
+                <ModalClient isOpen={isOpen} open={open} close={close} />
             }
         </>
     )
