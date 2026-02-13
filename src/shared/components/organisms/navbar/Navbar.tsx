@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './Navbar.style.css'
 import { ButtonComponent } from '../../atoms/button/Button';
 import { useAuth } from '../../../../features/auth/hooks/useAuth';
+import { NavLink } from 'react-router-dom';
 
 export const NavbarComponent = () => {
     const { logout } = useAuth();
@@ -47,7 +48,9 @@ export const NavbarComponent = () => {
             >
                 <ul>
                     <li>
-                        <a href="">Clientes</a>
+                        <NavLink to={'/clients'} replace >
+                            Clientes
+                        </NavLink>
                     </li>
                     <li>
                         <a href="">Configuracion</a>

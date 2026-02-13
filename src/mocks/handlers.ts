@@ -32,7 +32,36 @@ const userMocks: UserMock[] = [
     }
 ]
 
-const clients: Client[] = []
+const clients: Client[] = [
+    {
+        id: "dfe31165-a728-49eb-9a41-da67046959213b9",
+        name: "Juan",
+        lastname: "Paradigma",
+        birthDate: "1997-02-21",
+        phoneNumber: "2914253235"
+    },
+    {
+        id: "dfe31165-a728-49eb-9a41-da670411116959b9",
+        name: "claudio",
+        lastname: "gonzales",
+        birthDate: "1997-02-21",
+        phoneNumber: "2914253235"
+    },
+    {
+        id: "dfe31165-a728-49eb-9a41-da675555046959b9",
+        name: "Julieta",
+        lastname: "Venegas",
+        birthDate: "1997-02-21",
+        phoneNumber: "2914253235"
+    },
+    {
+        id: "dfe31165-a728-49eb-9a41-666da67046959b9",
+        name: "Miguel Angel",
+        lastname: "Goku",
+        birthDate: "1997-02-21",
+        phoneNumber: "2914253235"
+    }
+]
 
 
 export const handlers = [
@@ -122,7 +151,7 @@ export const handlers = [
         )
     }),
     http.get("/clients", async () => {
-        
+
     }),
     http.get("/calendars/:id", ({ params }) => {
         const { id } = params;
