@@ -2,16 +2,18 @@ import { StrictMode } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
 import { App } from './App'
-import { LoginPage } from './pages/Login/Login'
-import { DashboardPage } from './pages/Dashboard/Dashboard'
-import { AppointmentPage } from './pages/Appointment/Appointment'
 
-import { ProtectedRoute } from './routes/ProtectRoute'
-import { AuthProvider } from './auth/auth.provider'
+import { DashboardPage } from './features/dashboard/pages/Dashboard'
+import { AppointmentPage } from './features/appointments/pages/Appointment'
 
-import './index.css'
-import { RoleRoutes } from './routes/RoleRoute'
-import { ReportsPage } from './pages/Reports/Reports'
+import { ProtectedRoute } from './router/ProtectRoute'
+
+
+import './styles/index.css'
+import { RoleRoutes } from './router/RoleRoute'
+import { ReportsPage } from './features/reports/pages/Reports'
+import  { AuthProvider } from './features/auth/context/auth.provider'
+import { LoginPage } from './features/auth/pages/Login'
 
 async function enableMocking() {
   if (import.meta.env.MODE !== 'development') {

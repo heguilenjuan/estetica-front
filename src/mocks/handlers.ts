@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
-import type { User } from "../models/user.model";
-import type { Client, ClientCreate } from "../models/client.model";
+import type { User } from "../features/auth/models/user.model";
+import type { Client, ClientCreate } from "../features/clients/models/client.model";
 
 type UserMock = User & {
     password: string;
