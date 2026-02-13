@@ -1,0 +1,39 @@
+.table {
+  width: 100%;
+  table-layout:fixed;
+  border-collapse: collapse;
+  margin-top: 1.2rem;
+}
+
+.table thead th {
+  text-align: left;
+  font-weight: 500;
+  padding: 14px;
+  border-bottom: 1px solid grey;
+}
+
+.table tbody tr {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.table td {
+  padding:0.6rem;
+  font-size: 14px;
+  text-align: left;
+}
+
+.table menu {
+  display: flex;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.table-name{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}

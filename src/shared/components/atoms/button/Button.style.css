@@ -1,0 +1,23 @@
+.btn-component {
+  margin-block: 1rem;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  transition: border-color 0.25s;
+  cursor: pointer;
+  color: white;
+}
+.btn-component:hover {
+  border-color: #646cff;
+  background-color: #888efa;
+}
+.btn-component:focus,
+.btn-component:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+
