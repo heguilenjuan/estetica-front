@@ -1,15 +1,15 @@
 import { LayoutComponent } from "../../../Layout"
 import { AppointmentForm } from "../components/AppointmentForm"
 import { AppointmentSummary } from "../components/AppointmentSummary"
+import '../styles/Appointment.styles.css'
 
 export const AppointmentPage = () => {
     return (
         <LayoutComponent>
-            <div>
+            <section className="appointment-container">
                 <AppointmentForm />
                 <AppointmentSummary />
-
-            </div>
+            </section>
         </LayoutComponent>
     )
 }

@@ -150,8 +150,24 @@ export const handlers = [
             { status: 201 }
         )
     }),
-    http.get("/clients", async () => {
+    http.get("/clients/search", ({ request }) => {
+        const url = new URL(request.url);
+        const query = url.searchParams.get("q")?.toLowerCase() ?? "";
 
+        if (!query) {
+            return HttpResponse.json([], { status: 200 });
+        }
+
+        const filtered = clients.filter(
+            (client) =>
+                client.name.toLowerCase().includes(query) ||
+                client.lastname.toLowerCase().includes(query)
+        );
+
+        return HttpResponse.json(filtered, { status: 200 });
+    }),
+    http.get("/clients", () => {
+        return HttpResponse.json(clients, { status: 200 });
     }),
     http.get("/calendars/:id", ({ params }) => {
         const { id } = params;
