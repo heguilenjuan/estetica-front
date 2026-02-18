@@ -1,9 +1,9 @@
 import { useState, type ChangeEvent } from "react"
 import { ButtonComponent } from "../../../shared/components/atoms/button/Button"
 import { InputComponent } from "../../../shared/components/atoms/input/Input"
-import { useClient } from "../hooks/useClient"
 import "./ClientForm.style.css"
 import type { ClientCreate } from "../models/client.model"
+import { useCreateClient } from "../hooks/useCreateClient"
 
 export const ClientForm = () => {
     const [newClient, setNewClient] = useState<ClientCreate>({
@@ -14,7 +14,7 @@ export const ClientForm = () => {
     })
 
 
-    const { create, loading, error } = useClient();
+    const { create, loading, error } = useCreateClient();
 
     const handleChange = (
         event: ChangeEvent<HTMLInputElement>

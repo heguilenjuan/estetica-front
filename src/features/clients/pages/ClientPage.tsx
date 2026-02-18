@@ -1,12 +1,16 @@
 import { LayoutComponent } from "../../../Layout"
 import { SearchInput } from "../../../shared/components/atoms/search/SearchInput";
-import { useClientSearch } from "../hooks/useClientSearch"
+import { useClients } from "../hooks/useClients";
+import { useClientSearch } from "../hooks/useClientSearch";
 import type { Client } from "../models/client.model";
 import '../styles/Clientpage.style.css'
 
 export const ClientPage = () => {
+    const { clients, loading: loadingAll } = useClients();
+    const { query, loading: loadingSearch, handleSearch, results } = useClientSearch();
 
-    const { query, loading, handleSearch, results } = useClientSearch();
+    const displayedClients = query.trim() ? results : clients;
+    const loading = loadingAll || loadingSearch;
 
     return (
         <LayoutComponent>
@@ -17,7 +21,7 @@ export const ClientPage = () => {
                         placeholder="Buscar por nombre o apellido..."
                         value={query}
                         results={[]}
-                        loading={loading}
+                        loading={loadingSearch}
                         onSearch={handleSearch}
                         renderItem={() => null}
                     />
@@ -37,41 +41,25 @@ export const ClientPage = () => {
                         <tbody>
                             {loading && (
                                 <tr>
-                                    <td colSpan={5} className="client-table-empty">
-                                        Buscando...
-                                    </td>
+                                    <td colSpan={5} className="client-table-empty">Cargando...</td>
                                 </tr>
                             )}
-                            {!loading && results.length === 0 && (
+                            {!loading && displayedClients.length === 0 && (
                                 <tr>
                                     <td colSpan={5} className="client-table-empty">
-                                        {query.trim() ? "No se encontraron clientes." : "Ingresá un nombre para buscar."}
+                                        {query.trim() ? "No se encontraron clientes." : "No hay clientes registrados."}
                                     </td>
                                 </tr>
                             )}
-                            {results.map((client) => (
+                            {!loading && displayedClients.map((client) => (
                                 <tr key={client.id} className="client-table-row">
                                     <td>{client.name}</td>
                                     <td>{client.lastname}</td>
                                     <td>{client.phoneNumber}</td>
-                                    <td>{client.birthDate instanceof Date ? client.birthDate.toLocaleDateString() : client.birthDate}</td>
+                                    <td>{client.birthDate}</td>
                                     <td className="client-table-actions">
-                                        <button
-                                            type="button"
-                                            className="client-action-btn client-action-view"
-                                            title="Ver historial"
-                                            onClick={() => {/* navigate to historial */ }}
-                                        >
-                                            Ver
-                                        </button>
-                                        <button
-                                            type="button"
-                                            className="client-action-btn client-action-edit"
-                                            title="Editar cliente"
-                                            onClick={() => {/* open edit modal */ }}
-                                        >
-                                            Editar
-                                        </button>
+                                        <button type="button" className="client-action-btn client-action-view">Ver</button>
+                                        <button type="button" className="client-action-btn client-action-edit">Editar</button>
                                     </td>
                                 </tr>
                             ))}

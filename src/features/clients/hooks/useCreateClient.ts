@@ -2,7 +2,7 @@ import { useState } from "react"
 import type { ClientCreate } from "../models/client.model"
 import { createClient } from "../api/client.service";
 
-export const useClient = () => {
+export const useCreateClient = () => {
     const [error, setError] = useState<string | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
