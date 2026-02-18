@@ -1,6 +1,6 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import type { Client } from "../../clients/models/client.model";
-import { searchClients } from "../../clients/api/client.service";
+import { useClientSearch } from "../../clients/hooks/useClientSearch";
 
 
 interface UseClientSelectorReturn {
@@ -13,34 +13,8 @@ interface UseClientSelectorReturn {
 }
 
 export const useClientSelector = (): UseClientSelectorReturn => {
-    const [query, setQuery] = useState("");
-    const [results, setResults] = useState<Client[]>([]);
-    const [loading, setLoading] = useState(false);
+    const { query, results, loading, handleSearch, setQuery, setResults } = useClientSearch();
     const [selectedClient, setSelectedClient] = useState<Client | null>(null);
-
-    const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-    const handleSearch = async (value: string) => {
-        setQuery(value);
-        setSelectedClient(null);
-
-        if (timerRef.current) clearTimeout(timerRef.current);
-
-        if (!value.trim()) {
-            setResults([])
-            return;
-        }
-
-        timerRef.current = setTimeout(async () => {
-            setLoading(true);
-            try {
-                const data = await searchClients(value);
-                setResults(data)
-            } finally {
-                setLoading(false);
-            }
-        },)
-    };
 
     const handleSelect = async (client: Client) => {
         setSelectedClient(client);
@@ -49,13 +23,11 @@ export const useClientSelector = (): UseClientSelectorReturn => {
     }
 
     return {
-        query,
-        results,
-        loading,
         selectedClient,
-        handleSearch,
         handleSelect,
+        results,
+        query,
+        loading,
+        handleSearch,
     }
-
-
 }

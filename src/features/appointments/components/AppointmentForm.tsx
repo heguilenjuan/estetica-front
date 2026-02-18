@@ -16,7 +16,7 @@ export const AppointmentForm = () => {
                     <legend>
                         Seleccionar cliente
                     </legend>
-                    <ClientSelector/>
+                    <ClientSelector />
                     <ButtonComponent
                         type="button"
                         onClick={open}
