@@ -17,7 +17,7 @@ export const ModalClient = ({ isOpen, close }: HookModalResponse) => {
                     ✖
                 </ButtonComponent>
             </header>
-            <ClientForm />
+            <ClientForm onSuccess={close}/>
         </div>
     </ModalComponent>
     )

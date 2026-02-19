@@ -2,9 +2,8 @@ import { useDailyStats } from '../../hooks/useDailyStats'
 import './DashboardStats.style.css'
 
 export const DashboardStats = () => {
-    +
     const { stats } = useDailyStats();
-
+    console.log(stats)
     return (
         <>
             <dl className="stats-card">
@@ -13,7 +12,7 @@ export const DashboardStats = () => {
                     <span className="stats-icon">💰</span>
                 </dt>
                 <dd>
-                    <span className="stats-value">{stats?.dailyRevenue}</span>
+                    <span className="stats-value">${stats?.dailyRevenue}</span>
                 </dd>
             </dl>
 
@@ -35,7 +34,7 @@ export const DashboardStats = () => {
                 <dd>
                     <span className="stats-value">{stats?.appointmentsOccupied}%</span>
                     <div className="progress-bar">
-                        <div className="progress-fill" style={{ width: "50%" }}></div>
+                        <div className="progress-fill" style={{ width: `${stats?.appointmentsOccupied}%` }}></div>
                     </div>
                 </dd>
             </dl>

@@ -83,7 +83,8 @@ export const handlers = [
             lastName: lastName,
             dni: dni,
             birthDate: birthDate,
-            phoneNumber: phoneNumber
+            phoneNumber: phoneNumber,
+            created: new Date
         }
 
         db.clients.push(newClient)
@@ -165,11 +166,11 @@ export const handlers = [
         );
     }),
     /* STATS  */
-    http.get("/stats/today", () => {
+    http.get("/stats/daily", () => {
         return HttpResponse.json({
             dailyRevenue: 1240.50,
             newClientsToday:14,
-            appointmentsOccupied: 35
+            appointmentsOccupied: 85
         })
 
     }),

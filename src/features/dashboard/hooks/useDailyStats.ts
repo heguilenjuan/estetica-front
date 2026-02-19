@@ -7,7 +7,6 @@ interface DailyStats {
 }
 
 
-
 export const useDailyStats = () => {
     const [stats, setStats] = useState<DailyStats | null>(null);
     const [error, setError] = useState<string | null>(null);

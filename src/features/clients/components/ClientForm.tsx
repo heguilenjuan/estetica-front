@@ -5,7 +5,11 @@ import "./ClientForm.style.css"
 import type { ClientCreate } from "../models/client.model"
 import { useCreateClient } from "../hooks/useCreateClient"
 
-export const ClientForm = () => {
+interface ClientFormProps {
+    onSuccess?: () => void;
+}
+
+export const ClientForm = ({ onSuccess }: ClientFormProps) => {
     const [newClient, setNewClient] = useState<ClientCreate>({
         name: "",
         lastName: "",
@@ -30,7 +34,8 @@ export const ClientForm = () => {
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        await create(newClient);
+        const success = await create(newClient);
+        if (success) onSuccess?.()
     }
 
     return (

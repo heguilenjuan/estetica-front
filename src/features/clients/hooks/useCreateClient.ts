@@ -12,9 +12,11 @@ export const useCreateClient = () => {
 
         try {
             await createClient(payload);
+            return true
 
         } catch (error) {
             setError((error as Error).message);
+            return false
         } finally {
             setLoading(false);
         }
