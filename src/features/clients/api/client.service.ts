@@ -1,4 +1,4 @@
-import type { Client, ClientCreate } from "../models/client.model"
+import type { Client, ClientCreate, ClientUpdate } from "../models/client.model"
 
 /* export const getClients = async() => {
 
@@ -23,6 +23,19 @@ export const createClient = async (payload: ClientCreate):Promise<Client> => {
     })
 
     if(!response.ok) throw new Error("User not created");
+
+    return response.json();
+}
+
+export const updateClient = async (id: string, payload: ClientUpdate): Promise<Client> => {
+    const response = await fetch(`/clients/${id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify(payload)
+    });
+
+    if(!response.ok) throw new Error("Client not updated");
 
     return response.json();
 }

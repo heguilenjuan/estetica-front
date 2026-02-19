@@ -12,3 +12,10 @@ export interface ClientCreate {
     birthDate: Date | string;
     phoneNumber: string;
 }
+
+export interface ClientUpdate {
+    name?: string;
+    lastname?: string;
+    birthDate?: Date | string;
+    phoneNumber?: string;
+}
