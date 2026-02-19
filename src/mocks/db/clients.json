@@ -1,0 +1,100 @@
+[
+  {
+    "id": "11a1b1c1-d1e1-4f1a-b1c1-d1e1f1a1b1c1",
+    "name": "Juan",
+    "lastName": "Paradigma",
+    "birthDate": "1997-02-21",
+    "phoneNumber": "2914253235"
+  },
+  {
+    "id": "22a2b2c2-d2e2-4f2a-b2c2-d2e2f2a2b2c2",
+    "name": "Claudio",
+    "lastName": "Gonzalez",
+    "birthDate": "1990-06-15",
+    "phoneNumber": "2914253236"
+  },
+  {
+    "id": "33a3b3c3-d3e3-4f3a-b3c3-d3e3f3a3b3c3",
+    "name": "Julieta",
+    "lastName": "Venegas",
+    "birthDate": "1995-11-03",
+    "phoneNumber": "2914253237"
+  },
+  {
+    "id": "44a4b4c4-d4e4-4f4a-b4c4-d4e4f4a4b4c4",
+    "name": "Miguel",
+    "lastName": "Fernandez",
+    "birthDate": "1988-07-30",
+    "phoneNumber": "2914253238"
+  },
+  {
+    "id": "55a5b5c5-d5e5-4f5a-b5c5-d5e5f5a5b5c5",
+    "name": "Laura",
+    "lastName": "Martinez",
+    "birthDate": "1993-03-18",
+    "phoneNumber": "2914253239"
+  },
+  {
+    "id": "66a6b6c6-d6e6-4f6a-b6c6-d6e6f6a6b6c6",
+    "name": "Diego",
+    "lastName": "Lopez",
+    "birthDate": "1991-09-22",
+    "phoneNumber": "2914253240"
+  },
+  {
+    "id": "77a7b7c7-d7e7-4f7a-b7c7-d7e7f7a7b7c7",
+    "name": "Valeria",
+    "lastName": "Romero",
+    "birthDate": "1999-01-10",
+    "phoneNumber": "2914253241"
+  },
+  {
+    "id": "88a8b8c8-d8e8-4f8a-b8c8-d8e8f8a8b8c8",
+    "name": "Sebastian",
+    "lastName": "Torres",
+    "birthDate": "1985-12-05",
+    "phoneNumber": "2914253242"
+  },
+  {
+    "id": "99a9b9c9-d9e9-4f9a-b9c9-d9e9f9a9b9c9",
+    "name": "Florencia",
+    "lastName": "Perez",
+    "birthDate": "1996-08-14",
+    "phoneNumber": "2914253243"
+  },
+  {
+    "id": "aab1b2b3-c4d5-4e6f-a7b8-c9d0e1f2a3b4",
+    "name": "Matias",
+    "lastName": "Garcia",
+    "birthDate": "1994-04-27",
+    "phoneNumber": "2914253244"
+  },
+  {
+    "id": "bbc2c3c4-d5e6-4f7a-b8c9-d0e1f2a3b4c5",
+    "name": "Camila",
+    "lastName": "Sanchez",
+    "birthDate": "2000-10-09",
+    "phoneNumber": "2914253245"
+  },
+  {
+    "id": "ccd3d4d5-e6f7-4a8b-c9d0-e1f2a3b4c5d6",
+    "name": "Andres",
+    "lastName": "Ramirez",
+    "birthDate": "1987-05-16",
+    "phoneNumber": "2914253246"
+  },
+  {
+    "id": "dde4e5e6-f7a8-4b9c-d0e1-f2a3b4c5d6e7",
+    "name": "Luciana",
+    "lastName": "Diaz",
+    "birthDate": "1998-02-28",
+    "phoneNumber": "2914253247"
+  },
+  {
+    "id": "eef5f6f7-a8b9-4c0d-e1f2-a3b4c5d6e7f8",
+    "name": "Nicolas",
+    "lastName": "Alvarez",
+    "birthDate": "1992-07-04",
+    "phoneNumber": "2914253248"
+  }
+]

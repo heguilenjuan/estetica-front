@@ -1,67 +1,6 @@
 import { http, HttpResponse } from "msw";
-import type { User } from "../features/auth/models/user.model";
+import { db } from "./db";
 import type { Client, ClientCreate } from "../features/clients/models/client.model";
-
-type UserMock = User & {
-    password: string;
-}
-const userMocks: UserMock[] = [
-    {
-        id: "1",
-        name: "Juancito",
-        lastname: "Heguilen",
-        role: "admin",
-        username: "admin",
-        password: "123456"
-    },
-    {
-        id: "2",
-        name: "Cacho",
-        lastname: "Cacheito",
-        role: "basic",
-        username: "basic",
-        password: "1234567"
-    },
-    {
-        id: "3",
-        name: "Cacha",
-        lastname: "Cachita",
-        role: "manager",
-        username: "manager",
-        password: "12345678"
-    }
-]
-
-const clients: Client[] = [
-    {
-        id: "dfe31165-a728-49eb-9a41-da67046959213b9",
-        name: "Juan",
-        lastname: "Paradigma",
-        birthDate: "1997-02-21",
-        phoneNumber: "2914253235"
-    },
-    {
-        id: "dfe31165-a728-49eb-9a41-da670411116959b9",
-        name: "claudio",
-        lastname: "gonzales",
-        birthDate: "1997-02-21",
-        phoneNumber: "2914253235"
-    },
-    {
-        id: "dfe31165-a728-49eb-9a41-da675555046959b9",
-        name: "Julieta",
-        lastname: "Venegas",
-        birthDate: "1997-02-21",
-        phoneNumber: "2914253235"
-    },
-    {
-        id: "dfe31165-a728-49eb-9a41-666da67046959b9",
-        name: "Miguel Angel",
-        lastname: "Goku",
-        birthDate: "1997-02-21",
-        phoneNumber: "2914253235"
-    }
-]
 
 
 export const handlers = [
@@ -71,7 +10,7 @@ export const handlers = [
             password: string
         }
 
-        const userExist = userMocks.find((user: UserMock) => user.username === body.username);
+        const userExist = db.users.find((user) => user.username === body.username);
 
         if (!userExist) {
             return HttpResponse.json({ message: 'User not exists' }, { status: 404 })
@@ -104,7 +43,7 @@ export const handlers = [
 
         const userId = session.split('-')[0];
 
-        const userExist = userMocks.find(user => user.id === userId);
+        const userExist = db.users.find(user => user.id === userId);
         const { password, ...safeUser } = userExist;
 
         return HttpResponse.json(
@@ -112,6 +51,7 @@ export const handlers = [
             { status: 200 }
         );
     }),
+
     http.post('/logout', () => {
         return HttpResponse.json(
             { message: 'Logged out' },
@@ -123,12 +63,13 @@ export const handlers = [
             }
         );
     }),
+
     http.post('/clients', async ({ request }) => {
         const body = await request.json() as ClientCreate;
 
-        const { name, lastname, birthDate, phoneNumber } = body;
+        const { name, lastName, birthDate, phoneNumber } = body;
 
-        if (!name || !lastname || !birthDate || !phoneNumber) {
+        if (!name || !lastName || !birthDate || !phoneNumber) {
             return HttpResponse.json(
                 { message: 'Invalid data' },
                 { status: 400 }
@@ -138,18 +79,19 @@ export const handlers = [
         const newClient: Client = {
             id: crypto.randomUUID(),
             name: name,
-            lastname: lastname,
+            lastName: lastName,
             birthDate: birthDate,
             phoneNumber: phoneNumber
         }
 
-        clients.push(newClient)
+        db.clients.push(newClient)
 
         return HttpResponse.json(
             newClient,
             { status: 201 }
         )
     }),
+
     http.get("/clients/search", ({ request }) => {
         const url = new URL(request.url);
         const query = url.searchParams.get("q")?.toLowerCase() ?? "";
@@ -158,17 +100,19 @@ export const handlers = [
             return HttpResponse.json([], { status: 200 });
         }
 
-        const filtered = clients.filter(
+        const filtered = db.clients.filter(
             (client) =>
                 client.name.toLowerCase().includes(query) ||
-                client.lastname.toLowerCase().includes(query)
+                client.lastName.toLowerCase().includes(query)
         );
 
         return HttpResponse.json(filtered, { status: 200 });
     }),
+
     http.get("/clients", () => {
-        return HttpResponse.json(clients, { status: 200 });
+        return HttpResponse.json(db.clients, { status: 200 });
     }),
+
     http.get("/calendars/:id", ({ params }) => {
         const { id } = params;
 

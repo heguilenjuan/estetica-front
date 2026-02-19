@@ -1,4 +1,4 @@
-import type { Client, ClientCreate } from "../models/client.model"
+import type { Client, ClientCreate, ClientUpdate } from "../models/client.model"
 
 export const getClients = async (): Promise<Client[]> => {
     const response = await fetch('/clients', {
@@ -32,6 +32,19 @@ export const searchClients = async (query: string): Promise<Client[]> => {
     if (!response.ok) {
         throw new Error(`Error ${response.status}: no se pudo buscar clientes`)
     }
+
+    return response.json();
+}
+
+export const updateClient = async (id:string, payload:ClientUpdate):Promise<Client> => {
+    const response = await fetch(`/clients/${id}`,{
+        method:'PATCH',
+        headers:{'Content-type': 'application/json'},
+        credentials: 'include',
+        body: JSON.stringify(payload)
+    });
+
+    if(!response.ok) throw new Error("Cliente not updated")
 
     return response.json();
 }
