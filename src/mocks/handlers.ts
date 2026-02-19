@@ -4,6 +4,7 @@ import type { Client, ClientCreate } from "../features/clients/models/client.mod
 
 
 export const handlers = [
+    /* AUTH */
     http.post('/login', async ({ request }) => {
         const body = await request.json() as {
             username: string
@@ -63,13 +64,13 @@ export const handlers = [
             }
         );
     }),
-
+    /* CLIENTS  */
     http.post('/clients', async ({ request }) => {
         const body = await request.json() as ClientCreate;
 
-        const { name, lastName, birthDate, phoneNumber } = body;
+        const { name, lastName, birthDate, phoneNumber, dni } = body;
 
-        if (!name || !lastName || !birthDate || !phoneNumber) {
+        if (!name || !lastName || !birthDate || !phoneNumber || !dni) {
             return HttpResponse.json(
                 { message: 'Invalid data' },
                 { status: 400 }
@@ -80,6 +81,7 @@ export const handlers = [
             id: crypto.randomUUID(),
             name: name,
             lastName: lastName,
+            dni: dni,
             birthDate: birthDate,
             phoneNumber: phoneNumber
         }
@@ -103,7 +105,8 @@ export const handlers = [
         const filtered = db.clients.filter(
             (client) =>
                 client.name.toLowerCase().includes(query) ||
-                client.lastName.toLowerCase().includes(query)
+                client.lastName.toLowerCase().includes(query) ||
+                client.dni.toLocaleUpperCase().includes(query)
         );
 
         return HttpResponse.json(filtered, { status: 200 });
@@ -113,6 +116,7 @@ export const handlers = [
         return HttpResponse.json(db.clients, { status: 200 });
     }),
 
+    /* CALENDAR */
     http.get("/calendars/:id", ({ params }) => {
         const { id } = params;
 
@@ -159,6 +163,14 @@ export const handlers = [
             },
             { status: 200 }
         );
-    })
+    }),
+    /* STATS  */
+    http.get("/stats/today", () => {
+        return HttpResponse.json({
+            dailyRevenue: 1240.50,
+            newClientsToday:14,
+            appointmentsOccupied: 35
+        })
 
+    }),
 ]

@@ -18,7 +18,7 @@ export const useClientSelector = (): UseClientSelectorReturn => {
 
     const handleSelect = async (client: Client) => {
         setSelectedClient(client);
-        setQuery(`${client.name} ${client.lastname}`)
+        setQuery(`${client.name} ${client.lastName} - ${client.dni}`)
         setResults([])
     }
 
