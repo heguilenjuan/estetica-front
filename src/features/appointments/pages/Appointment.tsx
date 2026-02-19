@@ -1,12 +1,15 @@
 import { LayoutComponent } from "../../../Layout"
+import { AppointmentForm } from "../components/AppointmentForm"
+import { AppointmentSummary } from "../components/AppointmentSummary"
+import '../styles/Appointment.styles.css'
 
 export const AppointmentPage = () => {
-    return(
+    return (
         <LayoutComponent>
-           
-                
-            <h1>Appointment page</h1>
-      
+            <section className="appointment-container">
+                <AppointmentForm />
+                <AppointmentSummary />
+            </section>
         </LayoutComponent>
     )
 }

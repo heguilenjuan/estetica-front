@@ -14,7 +14,7 @@ import { RoleRoutes } from './router/RoleRoute'
 import { ReportsPage } from './features/reports/pages/Reports'
 import  { AuthProvider } from './features/auth/context/auth.provider'
 import { LoginPage } from './features/auth/pages/Login'
-import { ClientPage } from './features/clients/pages/ClientsPage'
+import { ClientPage } from './features/clients/pages/ClientPage'
 
 async function enableMocking() {
   if (import.meta.env.MODE !== 'development') {
