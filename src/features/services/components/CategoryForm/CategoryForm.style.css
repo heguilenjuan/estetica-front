@@ -1,0 +1,9 @@
+.form-category {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-category-btn {
+    width: 100%;
+}

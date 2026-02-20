@@ -1,0 +1,9 @@
+.form-treatment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-treatment-btn {
+    width: 100%;
+}

@@ -1,4 +1,5 @@
 import { LayoutComponent } from "../../../Layout"
+import { TabService } from "../components/TabService"
 
 export const ServicesPage = () => {
     return (
@@ -8,6 +9,7 @@ export const ServicesPage = () => {
                 <p>Administra las profesiones, categorias y tratamientos de tu negocio.</p>
 
             </div>
+            <TabService />
         </LayoutComponent>
     )
 }
