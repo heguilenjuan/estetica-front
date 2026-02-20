@@ -53,10 +53,9 @@ export const NavbarComponent = () => {
                         </NavLink>
                     </li>
                     <li>
-                        <a href="">Configuracion</a>
-                    </li>
-                    <li>
-                        <a href="">Tratamientos</a>
+                        <NavLink to="/services" replace>
+                            Servicios
+                        </NavLink>
                     </li>
                     <li>
                         <ButtonComponent

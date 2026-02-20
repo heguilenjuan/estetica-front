@@ -12,9 +12,10 @@ import { ProtectedRoute } from './router/ProtectRoute'
 import './styles/index.css'
 import { RoleRoutes } from './router/RoleRoute'
 import { ReportsPage } from './features/reports/pages/Reports'
-import  { AuthProvider } from './features/auth/context/auth.provider'
+import { AuthProvider } from './features/auth/context/auth.provider'
 import { LoginPage } from './features/auth/pages/Login'
 import { ClientPage } from './features/clients/pages/ClientPage'
+import { ServicesPage } from './features/services/pages/ServicesPage'
 
 async function enableMocking() {
   if (import.meta.env.MODE !== 'development') {
@@ -37,13 +38,14 @@ enableMocking().then(async () => {
             <Route path="/" element={<App />}>
               <Route index element={<Navigate to="login" replace />} />
               <Route path="/login" element={<LoginPage />} />
-              
+
               <Route element={<ProtectedRoute />}>
                 <Route path="/dashboard" element={<DashboardPage />} />
                 <Route path="/appointment" element={<AppointmentPage />} />
-                <Route path="/clients" element={<ClientPage/>} />
+                <Route path="/clients" element={<ClientPage />} />
 
                 <Route element={<RoleRoutes allowedRoles={["admin"]} />} >
+                  <Route path='/services' element={<ServicesPage />} />
                   <Route path='/reports' element={<ReportsPage />} />
                 </Route>
               </Route>
