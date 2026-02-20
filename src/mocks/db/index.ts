@@ -1,5 +1,5 @@
-import type { Client } from "../../features/clients/models/client.model";
-import type { User } from "../../features/auth/models/user.model";
+import type { Client } from "../../features/clients/types/client.types";
+import type { User } from "../../features/auth/types/user.types";
 import clientsData from "./clients.json"
 import usersData from "./users.json"
 

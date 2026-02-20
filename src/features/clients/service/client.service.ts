@@ -1,4 +1,4 @@
-import type { Client, ClientCreate, ClientUpdate } from "../models/client.model"
+import type { Client, ClientCreate, ClientUpdate } from "../types/client.types"
 
 export const getClients = async (): Promise<Client[]> => {
     const response = await fetch('/clients', {

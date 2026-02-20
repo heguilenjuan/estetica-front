@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
 import { db } from "./db";
-import type { Client, ClientCreate } from "../features/clients/models/client.model";
+import type { Client, ClientCreate } from "../features/clients/types/client.types";
 
 
 export const handlers = [

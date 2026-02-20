@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
-import { getClients } from "../api/client.service";
-import type { Client } from "../models/client.model";
+import { getClients } from "../service/client.service";
+import type { Client } from "../types/client.types";
 
 export const useClients = () => {
     const [error, setError] = useState<string | null>(null);

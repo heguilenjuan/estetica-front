@@ -28,7 +28,6 @@ export const useDailyStats = () => {
                 setLoading(false)
             }
         }
-
         fetchStats()
     }, [])
 

@@ -1,7 +1,7 @@
 import { useEffect, useReducer, type ReactNode } from "react";
 
 import { AuthContext } from "./auth.context";
-import { loginRequest, logoutRequest, meRequest } from "../api/auth.service";
+import { loginRequest, logoutRequest, meRequest } from "../service/auth.service";
 import { authReducer, initialAuthState } from "./auth.reducer";
 
 export function AuthProvider({children}:{children:ReactNode}){

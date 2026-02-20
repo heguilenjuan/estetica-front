@@ -2,7 +2,7 @@ import { LayoutComponent } from "../../../Layout"
 import { SearchInput } from "../../../shared/components/atoms/search/SearchInput";
 import { useClients } from "../hooks/useClients";
 import { useClientSearch } from "../hooks/useClientSearch";
-import type { Client } from "../models/client.model";
+import type { Client } from "../types/client.types";
 import '../styles/Clientpage.style.css'
 
 export const ClientPage = () => {

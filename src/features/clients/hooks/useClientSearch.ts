@@ -1,6 +1,6 @@
 import { useRef, useState } from "react"
-import type { Client } from "../models/client.model";
-import { searchClients } from "../api/client.service";
+import type { Client } from "../types/client.types";
+import { searchClients } from "../service/client.service";
 
 export const useClientSearch = () => {
     const [query, setQuery] = useState("");

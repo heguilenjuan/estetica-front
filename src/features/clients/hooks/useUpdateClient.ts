@@ -1,5 +1,5 @@
 import { useState } from "react"
-import type { ClientUpdate } from "../models/client.model";
+import type { ClientUpdate } from "../types/client.types";
 
 export const useUpdateClient = () => {
     const [error, setError] = useState<string|null>(null);

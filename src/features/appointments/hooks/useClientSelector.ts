@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Client } from "../../clients/models/client.model";
+import type { Client } from "../../clients/types/client.types";
 import { useClientSearch } from "../../clients/hooks/useClientSearch";
 
 

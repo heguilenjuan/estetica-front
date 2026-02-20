@@ -1,6 +1,6 @@
 import { useState } from "react"
-import type { ClientCreate } from "../models/client.model"
-import { createClient } from "../api/client.service";
+import type { ClientCreate } from "../types/client.types"
+import { createClient } from "../service/client.service";
 
 export const useCreateClient = () => {
     const [error, setError] = useState<string | null>(null);

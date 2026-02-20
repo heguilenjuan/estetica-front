@@ -1,4 +1,4 @@
-import type { User } from "../models/user.model";
+import type { User } from "../types/user.types";
 
 
 export interface AuthResponse {
