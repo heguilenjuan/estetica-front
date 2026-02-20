@@ -1,40 +1,53 @@
-import { useState, type ChangeEvent } from "react"
-import { ButtonComponent } from "../../../../shared/components/atoms/button/Button"
-import { InputComponent } from "../../../../shared/components/atoms/input/Input"
-import "./TreatmentForm.style.css"
-import type { TreatmentCreate } from "../../types/services.types"
-import { useCreateTreatment } from "../../hooks/useTreatments"
+import { useState, type ChangeEvent } from "react";
+import { ButtonComponent } from "../../../../shared/components/atoms/button/Button";
+import { InputComponent } from "../../../../shared/components/atoms/input/Input";
+import "./TreatmentForm.style.css";
+import type { TreatmentCreate, TreatmentView } from "../../types/services.types";
+import { useCreateTreatment, useUpdateTreatment } from "../../hooks/useTreatments";
 
 interface TreatmentFormProps {
     onSuccess?: () => void;
+    initialData?: TreatmentView;
 }
 
-export const TreatmentForm = ({ onSuccess }: TreatmentFormProps) => {
-    const [newTreatment, setNewTreatment] = useState<TreatmentCreate>({
-        categoryId: "",
-        name: "",
-        description: "",
-        price: 0,
-        costPrice: 0,
-        durationMin: 0,
-    })
+export const TreatmentForm = ({ onSuccess, initialData }: TreatmentFormProps) => {
+    const isEditing = !!initialData;
 
-    const { create, loading, error } = useCreateTreatment();
+    const [formData, setFormData] = useState<TreatmentCreate>({
+        categoryId: initialData?.categoryId ?? "",
+        name: initialData?.name ?? "",
+        description: initialData?.description ?? "",
+        price: initialData?.price ?? 0,
+        costPrice: initialData?.costPrice ?? 0,
+        durationMin: initialData?.durationMin ?? 0,
+        isActive: initialData?.isActive ?? true,
+    });
+
+    const { create, loading: loadingCreate, error: errorCreate } = useCreateTreatment();
+    const { update, loading: loadingUpdate, error: errorUpdate } = useUpdateTreatment();
+
+    const loading = isEditing ? loadingUpdate : loadingCreate;
+    const error = isEditing ? errorUpdate : errorCreate;
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value, type } = event.target;
-
-        setNewTreatment((prev) => ({
+        setFormData(prev => ({
             ...prev,
-            [name as keyof TreatmentCreate]: type === "number" ? Number(value) : value,
+            [name]: type === "number" ? Number(value) : value,
         }));
+    };
+
+    const handleCheckboxChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setFormData(prev => ({ ...prev, isActive: event.target.checked }));
     };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const success = await create(newTreatment);
+        const success = isEditing
+            ? await update(initialData!.id, formData)
+            : await create(formData);
         if (success) onSuccess?.();
-    }
+    };
 
     return (
         <form className="form-treatment" onSubmit={handleSubmit}>
@@ -43,8 +56,8 @@ export const TreatmentForm = ({ onSuccess }: TreatmentFormProps) => {
                 name="categoryId"
                 id="categoryId"
                 type="text"
-                placeholder="Ej: abc123"
-                defaultValue=""
+                placeholder="Ej: cat-1"
+                defaultValue={formData.categoryId}
                 onChange={handleChange}
             />
             <InputComponent
@@ -53,7 +66,7 @@ export const TreatmentForm = ({ onSuccess }: TreatmentFormProps) => {
                 id="name"
                 type="text"
                 placeholder="Ej: Corte de cabello"
-                defaultValue=""
+                defaultValue={formData.name}
                 onChange={handleChange}
             />
             <InputComponent
@@ -61,8 +74,8 @@ export const TreatmentForm = ({ onSuccess }: TreatmentFormProps) => {
                 name="description"
                 id="description"
                 type="text"
-                placeholder="Ej: Corte clásico para caballero"
-                defaultValue=""
+                placeholder="Ej: Sesión completa"
+                defaultValue={formData.description ?? ""}
                 onChange={handleChange}
             />
             <InputComponent
@@ -71,6 +84,7 @@ export const TreatmentForm = ({ onSuccess }: TreatmentFormProps) => {
                 id="price"
                 type="number"
                 placeholder="Ej: 5000"
+                defaultValue={String(formData.price)}
                 onChange={handleChange}
             />
             <InputComponent
@@ -79,6 +93,7 @@ export const TreatmentForm = ({ onSuccess }: TreatmentFormProps) => {
                 id="costPrice"
                 type="number"
                 placeholder="Ej: 2000"
+                defaultValue={String(formData.costPrice ?? 0)}
                 onChange={handleChange}
             />
             <InputComponent
@@ -87,17 +102,25 @@ export const TreatmentForm = ({ onSuccess }: TreatmentFormProps) => {
                 id="durationMin"
                 type="number"
                 placeholder="Ej: 30"
+                defaultValue={String(formData.durationMin)}
                 onChange={handleChange}
             />
+            <label className="form-treatment-checkbox">
+                <input
+                    type="checkbox"
+                    name="isActive"
+                    checked={formData.isActive ?? true}
+                    onChange={handleCheckboxChange}
+                />
+                Activo
+            </label>
 
-            <ButtonComponent
-                className="form-treatment-btn"
-                type="submit"
-                disabled={loading}
-            >
-                {loading ? "Creando..." : "Crear tratamiento"}
+            <ButtonComponent className="form-treatment-btn" type="submit" disabled={loading}>
+                {loading
+                    ? (isEditing ? "Guardando..." : "Creando...")
+                    : (isEditing ? "Guardar cambios" : "Crear tratamiento")}
             </ButtonComponent>
             {error && <p className="error">{error}</p>}
         </form>
-    )
-}
+    );
+};

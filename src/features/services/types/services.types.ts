@@ -32,7 +32,7 @@ export interface Treatment {
     id: string;
     categoryId: string;
     name: string;
-    descripton?: string;
+    description?: string;
     price: number;
     costPrice?: number;
     durationMin: number;

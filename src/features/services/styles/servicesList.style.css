@@ -1,0 +1,122 @@
+.service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+}
+
+.service-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.service-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.service-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e1e2e;
+    font-size: 14px;
+}
+
+.service-table thead tr {
+    background-color: #888efa22;
+    border-bottom: 2px solid #888efa55;
+}
+
+.service-table th {
+    padding: 0.9rem 1.2rem;
+    text-align: left;
+    font-weight: 600;
+    color: #888efa;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.service-table td {
+    padding: 0.85rem 1.2rem;
+    color: #d0d0d0;
+    border-bottom: 1px solid #ffffff0f;
+}
+
+.service-table-row:hover td {
+    background-color: #888efa0d;
+}
+
+.service-table-empty {
+    text-align: center;
+    padding: 2.5rem !important;
+    color: #666;
+    font-style: italic;
+}
+
+.service-table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.service-action-btn {
+    padding: 0.35rem 0.85rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.service-action-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.service-action-edit {
+    background-color: #facc1533;
+    color: #facc15;
+    border: 1px solid #facc1555;
+}
+
+.service-action-delete {
+    background-color: #f8717133;
+    color: #f87171;
+    border: 1px solid #f8717155;
+}
+
+.service-color-dot {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #ffffff22;
+    vertical-align: middle;
+}
+
+.service-badge-active {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: #4ade8033;
+    color: #4ade80;
+    border: 1px solid #4ade8055;
+}
+
+.service-badge-inactive {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: #f8717133;
+    color: #f87171;
+    border: 1px solid #f8717155;
+}

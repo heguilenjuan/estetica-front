@@ -1,0 +1,8 @@
+[
+  { "id": "tr-1", "categoryId": "cat-1", "name": "Depilación laser piernas", "description": "Sesión completa de piernas", "price": 8500, "costPrice": 3000, "durationMin": 60, "isActive": true },
+  { "id": "tr-2", "categoryId": "cat-1", "name": "Depilación laser axilas", "description": "Sesión de axilas", "price": 4500, "costPrice": 1500, "durationMin": 30, "isActive": true },
+  { "id": "tr-3", "categoryId": "cat-2", "name": "Masaje relajante", "description": "Masaje corporal completo", "price": 5000, "costPrice": 1800, "durationMin": 60, "isActive": true },
+  { "id": "tr-4", "categoryId": "cat-2", "name": "Masaje descontracturante", "description": "Foco en nudos musculares", "price": 6000, "costPrice": 2000, "durationMin": 60, "isActive": false },
+  { "id": "tr-5", "categoryId": "cat-3", "name": "Limpieza facial profunda", "description": "Limpieza con extracción", "price": 7000, "costPrice": 2500, "durationMin": 90, "isActive": true },
+  { "id": "tr-6", "categoryId": "cat-4", "name": "Manicuría semipermanente", "description": "Esmaltado de larga duración", "price": 3500, "costPrice": 1200, "durationMin": 45, "isActive": true }
+]

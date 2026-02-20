@@ -7,3 +7,14 @@
 .form-treatment-btn {
     width: 100%;
 }
+
+.form-treatment-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    color: #d0d0d0;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0.25rem 0;
+}

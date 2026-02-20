@@ -1,37 +1,42 @@
-import { useState, type ChangeEvent } from "react"
-import { ButtonComponent } from "../../../../shared/components/atoms/button/Button"
-import { InputComponent } from "../../../../shared/components/atoms/input/Input"
-import "./CategoryForm.style.css"
-import type { CategoryCreate } from "../../types/services.types"
-import { useCreateCategory } from "../../hooks/useCategories"
+import { useState, type ChangeEvent } from "react";
+import { ButtonComponent } from "../../../../shared/components/atoms/button/Button";
+import { InputComponent } from "../../../../shared/components/atoms/input/Input";
+import "./CategoryForm.style.css";
+import type { CategoryCreate, CategoryView } from "../../types/services.types";
+import { useCreateCategory, useUpdateCategory } from "../../hooks/useCategories";
 
 interface CategoryFormProps {
     onSuccess?: () => void;
+    initialData?: CategoryView;
 }
 
-export const CategoryForm = ({ onSuccess }: CategoryFormProps) => {
-    const [newCategory, setNewCategory] = useState<CategoryCreate>({
-        professionId: "",
-        name: "",
-        icon: "",
-    })
+export const CategoryForm = ({ onSuccess, initialData }: CategoryFormProps) => {
+    const isEditing = !!initialData;
 
-    const { create, loading, error } = useCreateCategory();
+    const [formData, setFormData] = useState<CategoryCreate>({
+        professionId: initialData?.professionId ?? "",
+        name: initialData?.name ?? "",
+        icon: initialData?.icon ?? "",
+    });
+
+    const { create, loading: loadingCreate, error: errorCreate } = useCreateCategory();
+    const { update, loading: loadingUpdate, error: errorUpdate } = useUpdateCategory();
+
+    const loading = isEditing ? loadingUpdate : loadingCreate;
+    const error = isEditing ? errorUpdate : errorCreate;
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
-
-        setNewCategory((prev) => ({
-            ...prev,
-            [name as keyof CategoryCreate]: value,
-        }));
+        setFormData(prev => ({ ...prev, [name]: value }));
     };
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const success = await create(newCategory);
+        const success = isEditing
+            ? await update(initialData!.id, formData)
+            : await create(formData);
         if (success) onSuccess?.();
-    }
+    };
 
     return (
         <form className="form-category" onSubmit={handleSubmit}>
@@ -40,8 +45,8 @@ export const CategoryForm = ({ onSuccess }: CategoryFormProps) => {
                 name="professionId"
                 id="professionId"
                 type="text"
-                placeholder="Ej: abc123"
-                defaultValue=""
+                placeholder="Ej: prof-1"
+                defaultValue={formData.professionId}
                 onChange={handleChange}
             />
             <InputComponent
@@ -50,7 +55,7 @@ export const CategoryForm = ({ onSuccess }: CategoryFormProps) => {
                 id="name"
                 type="text"
                 placeholder="Ej: Depilación"
-                defaultValue=""
+                defaultValue={formData.name}
                 onChange={handleChange}
             />
             <InputComponent
@@ -58,19 +63,17 @@ export const CategoryForm = ({ onSuccess }: CategoryFormProps) => {
                 name="icon"
                 id="icon"
                 type="text"
-                placeholder="Ej: scissors"
-                defaultValue=""
+                placeholder="Ej: ✂️"
+                defaultValue={formData.icon ?? ""}
                 onChange={handleChange}
             />
 
-            <ButtonComponent
-                className="form-category-btn"
-                type="submit"
-                disabled={loading}
-            >
-                {loading ? "Creando..." : "Crear categoría"}
+            <ButtonComponent className="form-category-btn" type="submit" disabled={loading}>
+                {loading
+                    ? (isEditing ? "Guardando..." : "Creando...")
+                    : (isEditing ? "Guardar cambios" : "Crear categoría")}
             </ButtonComponent>
             {error && <p className="error">{error}</p>}
         </form>
-    )
-}
+    );
+};
