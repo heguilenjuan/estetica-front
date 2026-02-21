@@ -43,8 +43,12 @@ export const CategoryList = () => {
         <>
             <div className="service-list">
                 <div className="service-list-header">
-                    <ButtonComponent type="button" onClick={handleOpenCreate}>
-                        + Nueva categoría
+                    <div className="service-list-header-info">
+                        <h2 className="service-list-title">Categorias</h2>
+                        <p className="service-list-count">{categories.length} categorias registradas</p>
+                    </div>
+                    <ButtonComponent type="button" onClick={handleOpenCreate} className="btn-service-new">
+                        + Nueva Categoria
                     </ButtonComponent>
                 </div>
 

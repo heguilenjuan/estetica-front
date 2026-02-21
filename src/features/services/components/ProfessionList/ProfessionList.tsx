@@ -43,8 +43,12 @@ export const ProfessionList = () => {
         <>
             <div className="service-list">
                 <div className="service-list-header">
-                    <ButtonComponent type="button" onClick={handleOpenCreate}>
-                        + Nueva profesión
+                    <div className="service-list-header-info">
+                        <h2 className="service-list-title">Profesiones</h2>
+                        <p className="service-list-count">{professions.length} profesiones registradas</p>
+                    </div>
+                    <ButtonComponent type="button" onClick={handleOpenCreate} className="btn-service-new">
+                        + Nueva Profesion
                     </ButtonComponent>
                 </div>
 

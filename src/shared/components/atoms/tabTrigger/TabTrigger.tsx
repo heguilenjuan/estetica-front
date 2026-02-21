@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useTabsContext } from "../../../context/TabsContext";
 import { TabIcon } from "../tabIcon/TabIcon";
+import "./TabTrigger.style.css";
 
 interface TabTriggerProps {
     value: string;
