@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(\"d:/estetica-front/src/features/services/hooks/useCategories.ts\":*)",
-      "Bash(\"d:/estetica-front/src/features/services/hooks/useProfession.ts\":*)",
-      "Bash(\"d:/estetica-front/src/features/services/hooks/useTreatments.ts\":*)"
-    ]
-  }
-}
