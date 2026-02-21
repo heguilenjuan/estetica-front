@@ -1,0 +1,5 @@
+[
+  { "id": "prof-1", "name": "Estética", "description": "Tratamientos de belleza y cuidado corporal", "color": "#a78bfa" },
+  { "id": "prof-2", "name": "Cosmetología", "description": "Cuidado y embellecimiento de la piel", "color": "#f472b6" },
+  { "id": "prof-3", "name": "Nutrición", "description": "Asesoramiento nutricional y bienestar", "color": "#34d399" }
+]

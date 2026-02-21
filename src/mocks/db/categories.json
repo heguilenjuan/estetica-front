@@ -1,0 +1,7 @@
+[
+  { "id": "cat-1", "professionId": "prof-1", "name": "Depilación", "icon": "✂️" },
+  { "id": "cat-2", "professionId": "prof-1", "name": "Masajes", "icon": "💆" },
+  { "id": "cat-3", "professionId": "prof-2", "name": "Faciales", "icon": "🧴" },
+  { "id": "cat-4", "professionId": "prof-2", "name": "Uñas", "icon": "💅" },
+  { "id": "cat-5", "professionId": "prof-3", "name": "Consultas", "icon": "📋" }
+]

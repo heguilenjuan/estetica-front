@@ -1,0 +1,9 @@
+.form-profession {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-profession-btn {
+    width: 100%;
+}

@@ -1,6 +1,7 @@
 import { http, HttpResponse } from "msw";
 import { db } from "./db";
-import type { Client, ClientCreate } from "../features/clients/models/client.model";
+import type { Client, ClientCreate } from "../features/clients/types/client.types";
+import type { CategoryCreate, ProfessionCreate, TreatmentCreate } from "../features/services/types/services.types";
 
 
 export const handlers = [
@@ -169,9 +170,108 @@ export const handlers = [
     http.get("/stats/daily", () => {
         return HttpResponse.json({
             dailyRevenue: 1240.50,
-            newClientsToday:14,
+            newClientsToday: 14,
             appointmentsOccupied: 85
         })
+    }),
 
+    /* PROFESSIONS */
+    http.get("/professions", () => {
+        return HttpResponse.json(db.professions, { status: 200 });
+    }),
+
+    http.post("/professions", async ({ request }) => {
+        const body = await request.json() as ProfessionCreate;
+        const newProfession = { id: crypto.randomUUID(), ...body };
+        db.professions.push(newProfession);
+        return HttpResponse.json(newProfession, { status: 201 });
+    }),
+
+    http.patch("/professions/:id", async ({ request, params }) => {
+        const { id } = params as { id: string };
+        const body = await request.json() as Partial<ProfessionCreate>;
+        const idx = db.professions.findIndex(p => p.id === id);
+        if (idx === -1) return HttpResponse.json({ message: "Not found" }, { status: 404 });
+        db.professions[idx] = { ...db.professions[idx], ...body };
+        return HttpResponse.json(db.professions[idx], { status: 200 });
+    }),
+
+    http.delete("/professions/:id", ({ params }) => {
+        const { id } = params as { id: string };
+        const idx = db.professions.findIndex(p => p.id === id);
+        if (idx === -1) return HttpResponse.json({ message: "Not found" }, { status: 404 });
+        db.professions.splice(idx, 1);
+        return new HttpResponse(null, { status: 204 });
+    }),
+
+    /* CATEGORIES */
+    http.get("/categories", () => {
+        const view = db.categories.map(cat => ({
+            ...cat,
+            professionName: db.professions.find(p => p.id === cat.professionId)?.name ?? "—",
+        }));
+        return HttpResponse.json(view, { status: 200 });
+    }),
+
+    http.post("/categories", async ({ request }) => {
+        const body = await request.json() as CategoryCreate;
+        const newCategory = { id: crypto.randomUUID(), ...body };
+        db.categories.push(newCategory);
+        return HttpResponse.json(newCategory, { status: 201 });
+    }),
+
+    http.patch("/categories/:id", async ({ request, params }) => {
+        const { id } = params as { id: string };
+        const body = await request.json() as Partial<CategoryCreate>;
+        const idx = db.categories.findIndex(c => c.id === id);
+        if (idx === -1) return HttpResponse.json({ message: "Not found" }, { status: 404 });
+        db.categories[idx] = { ...db.categories[idx], ...body };
+        return HttpResponse.json(db.categories[idx], { status: 200 });
+    }),
+
+    http.delete("/categories/:id", ({ params }) => {
+        const { id } = params as { id: string };
+        const idx = db.categories.findIndex(c => c.id === id);
+        if (idx === -1) return HttpResponse.json({ message: "Not found" }, { status: 404 });
+        db.categories.splice(idx, 1);
+        return new HttpResponse(null, { status: 204 });
+    }),
+
+    /* TREATMENTS */
+    http.get("/treatments", () => {
+        const view = db.treatments.map(tr => {
+            const cat = db.categories.find(c => c.id === tr.categoryId);
+            const prof = cat ? db.professions.find(p => p.id === cat.professionId) : undefined;
+            return {
+                ...tr,
+                categoryName: cat?.name ?? "—",
+                professionName: prof?.name ?? "—",
+            };
+        });
+        return HttpResponse.json(view, { status: 200 });
+    }),
+
+    http.post("/treatments", async ({ request }) => {
+        const body = await request.json() as TreatmentCreate;
+        const newTreatment = { id: crypto.randomUUID(), isActive: true, ...body };
+        db.treatments.push(newTreatment);
+        return HttpResponse.json(newTreatment, { status: 201 });
+    }),
+
+    http.patch("/treatments/:id", async ({ request, params }) => {
+        const { id } = params as { id: string };
+        const body = await request.json() as Partial<TreatmentCreate>;
+        const idx = db.treatments.findIndex(t => t.id === id);
+        if (idx === -1) return HttpResponse.json({ message: "Not found" }, { status: 404 });
+        db.treatments[idx] = { ...db.treatments[idx], ...body };
+        return HttpResponse.json(db.treatments[idx], { status: 200 });
+    }),
+
+    http.delete("/treatments/:id", ({ params }) => {
+        const { id } = params as { id: string };
+        const idx = db.treatments.findIndex(t => t.id === id);
+        if (idx === -1) return HttpResponse.json({ message: "Not found" }, { status: 404 });
+        db.treatments.splice(idx, 1);
+        return new HttpResponse(null, { status: 204 });
     }),
 ]

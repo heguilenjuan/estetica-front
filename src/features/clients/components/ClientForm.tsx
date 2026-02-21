@@ -2,7 +2,7 @@ import { useState, type ChangeEvent } from "react"
 import { ButtonComponent } from "../../../shared/components/atoms/button/Button"
 import { InputComponent } from "../../../shared/components/atoms/input/Input"
 import "./ClientForm.style.css"
-import type { ClientCreate } from "../models/client.model"
+import type { ClientCreate } from "../types/client.types"
 import { useCreateClient } from "../hooks/useCreateClient"
 
 interface ClientFormProps {

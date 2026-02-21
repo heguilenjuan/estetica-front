@@ -1,12 +1,14 @@
 import { useEffect, useRef, type ReactNode } from "react"
+import { ButtonComponent } from "../../atoms/button/Button"
 
 type ModalProps = {
-  children: ReactNode
-  isOpen: boolean
-  onClose: () => void
+  children: ReactNode;
+  isOpen: boolean;
+  onClose: () => void;
+  title: string;
 }
 
-export const ModalComponent = ({ children, isOpen, onClose }: ModalProps) => {
+export const ModalComponent = ({ children, isOpen, onClose, title }: ModalProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
@@ -33,7 +35,18 @@ export const ModalComponent = ({ children, isOpen, onClose }: ModalProps) => {
       onCancel={onClose}
       onClose={onClose}
     >
-      {children}
+      <div className="modal-content">
+        <header className="modal-header">
+          <h2>{title}</h2>
+          <ButtonComponent
+            type="button"
+            onClick={onClose}
+          >
+            ✖
+          </ButtonComponent>
+        </header>
+        {children}
+      </div>
     </dialog>
   )
 }

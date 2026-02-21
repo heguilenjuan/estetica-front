@@ -1,0 +1,283 @@
+.service-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+}
+
+.service-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.service-list-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.service-list-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.service-list-count {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+}
+
+.service-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+.service-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1e1e2e;
+    font-size: 14px;
+}
+
+.service-table thead tr {
+    background-color: #888efa22;
+    border-bottom: 2px solid #888efa55;
+}
+
+.service-table th {
+    padding: 0.9rem 1.2rem;
+    text-align: left;
+    font-weight: 600;
+    color: #888efa;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+}
+
+.service-table td {
+    padding: 0.85rem 1.2rem;
+    color: #d0d0d0;
+    border-bottom: 1px solid #ffffff0f;
+}
+
+.service-table-row:hover td {
+    background-color: #888efa0d;
+}
+
+.service-table-empty {
+    text-align: center;
+    padding: 2.5rem !important;
+    color: #666;
+    font-style: italic;
+}
+
+.service-table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.service-action-btn {
+    padding: 0.35rem 0.85rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.service-action-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-1px);
+}
+
+.service-action-edit {
+    background-color: #facc1533;
+    color: #facc15;
+    border: 1px solid #facc1555;
+}
+
+.service-action-delete {
+    background-color: #f8717133;
+    color: #f87171;
+    border: 1px solid #f8717155;
+}
+
+.service-color-dot {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #ffffff22;
+    vertical-align: middle;
+}
+
+.service-badge-active {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: #4ade8033;
+    color: #4ade80;
+    border: 1px solid #4ade8055;
+}
+
+.service-badge-inactive {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: #f8717133;
+    color: #f87171;
+    border: 1px solid #f8717155;
+}
+
+/* ── Stats row ────────────────────────────────────────────── */
+.service-stats-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.service-stat-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.service-stat-num {
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.service-stat-label {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.service-stat-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.service-stat-dot--active {
+    background-color: #4ade80;
+    box-shadow: 0 0 6px #4ade8088;
+}
+
+.service-stat-dot--inactive {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── Filter row ───────────────────────────────────────────── */
+.service-box-filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.service-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.service-search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1;
+    min-width: 180px;
+    max-width: 280px;
+}
+
+.service-search-icon {
+    position: absolute;
+    left: 0.75rem;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.35);
+    pointer-events: none;
+}
+
+.service-search-input {
+    width: 100%;
+    padding: 0.5rem 0.85rem 0.5rem 2.2rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 13.5px;
+    outline: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.service-search-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.service-search-input:focus {
+    border-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.service-category-select {
+    padding: 0.5rem 2rem 0.5rem 0.85rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 13.5px;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.65rem center;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.service-category-select:focus {
+    border-color: rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.service-category-select option {
+    background-color: #1e1e2e;
+    color: #ffffff;
+}
+
+/* Green action button for new items */
+.btn-service-new {
+    background-color: #4ade80 !important;
+    color: #0d1f0d !important;
+    border-radius: 999px !important;
+    font-weight: 700 !important;
+    margin-block: 0 !important;
+    padding: 0.5em 1.3em !important;
+    border-color: transparent !important;
+}
+
+.btn-service-new:hover {
+    background-color: #22c55e !important;
+    border-color: transparent !important;
+}

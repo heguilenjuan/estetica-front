@@ -1,0 +1,20 @@
+.services-page-header {
+    text-align: start;
+    padding-bottom: 1.25rem;
+    margin-bottom: 1.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.services-page-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 0.3rem 0;
+    line-height: 1.2;
+}
+
+.services-page-subtitle {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+}

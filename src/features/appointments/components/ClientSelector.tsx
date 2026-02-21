@@ -1,5 +1,5 @@
 import { SearchInput } from "../../../shared/components/atoms/search/SearchInput";
-import type { Client } from "../../clients/models/client.model";
+import type { Client } from "../../clients/types/client.types";
 import { useClientSelector } from "../hooks/useClientSelector"
 
 export const ClientSelector = () => {
